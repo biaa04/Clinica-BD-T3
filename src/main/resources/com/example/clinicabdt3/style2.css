@@ -1,0 +1,51 @@
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px 0px 2px 2px;
+    -fx-background-radius: 2px;
+    -fx-border-color: linear-gradient(to bottom right, #547cb9, #547cb9 )
+  }
+  .table-view .column-header, filter{
+    -fx-background-color: #547cb9 ;
+    -fx-size: 50px;
+    
+  }
+  
+  .table-view .column-header .label{
+    -fx-text-fill: #fff;
+    -fx-size: 50px;
+  }
+
+  .blocoCad{
+    -fx-background-color: #bad2f7;
+    -fx-background-radius: 2px;
+    -fx-border-color: #547cb9;
+    -fx-border-radius: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 8, 0, 0, 2);
+
+  }
+  .pesquisa{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 5, 0, 0, 2);
+
+  }
+  .button {/* botão menu*/
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 5, 0, 0, 2);
+
+  }
+  .button:hover { /* passar o mouse*/
+    -fx-background-color:#f5f4f4 ;
+    -fx-text-fill: #000000;
+  }
+
+  .button:pressed { /*pressionar o botão */
+    -fx-background-color: #bad2f7;
+    -fx-text-fill:#27124B;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 4), 8, 0, 0, 2);
+  }
