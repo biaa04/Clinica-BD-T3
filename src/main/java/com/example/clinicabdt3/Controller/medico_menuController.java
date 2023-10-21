@@ -1,4 +1,4 @@
 package com.example.clinicabdt3.Controller;
 
-public class UsuarioController {
+public class medico_menuController {
 }
