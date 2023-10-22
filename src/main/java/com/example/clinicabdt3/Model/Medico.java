@@ -24,14 +24,6 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-    public String getPlanoQueAtende() {
-        return planoQueAtende;
-    }
-
-    public void setPlanoQueAtende(String planoQueAtende) {
-        this.planoQueAtende = planoQueAtende;
-    }
-
     public String getCRM() {
         return CRM;
     }
