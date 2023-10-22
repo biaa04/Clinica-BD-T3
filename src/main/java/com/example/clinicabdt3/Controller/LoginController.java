@@ -15,6 +15,9 @@ import java.util.Objects;
 
 
 public class LoginController {
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
     @FXML
     private Button loginButton;
 
@@ -31,7 +34,6 @@ public class LoginController {
     void cadastrar(ActionEvent event) {
 
     }
-    private Usuario user;
 
     @FXML
     void login(ActionEvent event) throws IOException
@@ -42,12 +44,13 @@ public class LoginController {
 
     @FXML
     void switchToSignUp(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("registro.fxml"))));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registro.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
-        stage.centerOnScreen();
+        stage.setResizable(false);
         stage.show();
     }
-
 }
