@@ -29,6 +29,9 @@ public class LoginController {
     @FXML
     private Button cadastrarButton;
 
+    String cpf;
+    String senha;
+
     @FXML
     void cadastrar(ActionEvent event) throws IOException {
        FXMLLoader loader = new FXMLLoader(getClass().getResource("registro.fxml"));
@@ -41,6 +44,9 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
+        cpf = CPFTextField.getText();
+        senha = senhaTextField.getText();
+
         //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
         if(CPFTextField.getText().equals("admin")) {
             irAdminMenu(event);

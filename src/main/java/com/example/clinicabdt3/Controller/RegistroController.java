@@ -26,5 +26,18 @@ public class RegistroController {
     @FXML
     private Button LoginButton;
 
+    String nome;
+    String senha;
+    String especialidade;
+    String crm;
+
+    public void registrar(ActionEvent e) throws IOExcepition {
+        nome = TextFieldNome.getText();
+        senha = TextFieldSenha.getText();
+        especialidade = TextFieldEspecialidade.getText();
+        crm = TextFieldCRM.getText();
+
+        //implementar banco de dados
+    }
 }
 
