@@ -31,11 +31,11 @@ public class LoginController {
 
     @FXML
     void cadastrar(ActionEvent event) throws IOException {
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("registro.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load((getClass().getResource("registro.fxml")));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
     }
 
