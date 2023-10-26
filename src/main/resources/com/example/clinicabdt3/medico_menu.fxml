@@ -3,19 +3,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
          <children>
             <ImageView fx:id="especialidade" fitHeight="111.0" fitWidth="135.0" layoutX="40.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@6326055.png" />
+                  <Image url="@../../../../../../../../../Downloads/6326055.png" />
                </image>
             </ImageView>
             <Text fx:id="CRM" layoutX="13.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25352" textAlignment="CENTER" wrappingWidth="169.9166717529297">
@@ -56,7 +57,7 @@
             <Button fx:id="logoutbutton" layoutX="59.0" layoutY="424.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="74.0" text="SAIR" />
          </children>
       </AnchorPane>
-      <TableView editable="true" layoutX="221.0" layoutY="50.0" prefHeight="454.0" prefWidth="935.0" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
+      <TableView editable="true" layoutX="217.0" layoutY="94.0" prefHeight="409.0" prefWidth="935.0" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
         <columns>
           <TableColumn prefWidth="127.80000305175781" text="data" />
           <TableColumn prefWidth="129.0" text="Horario" />
@@ -64,5 +65,16 @@
             <TableColumn prefWidth="89.4000244140625" text="Idade" />
         </columns>
       </TableView>
+      <TextField fx:id="destinationTextField" layoutX="272.0" layoutY="33.0" prefHeight="42.0" prefWidth="841.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@../../../../../../../../../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css" />
+      <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="293.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/84236.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="24.0" layoutY="302.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="62.0" style="-fx-background-color: #d3d3d3;" text="Editar Perfil">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Button>
    </children>
 </fx:root>
