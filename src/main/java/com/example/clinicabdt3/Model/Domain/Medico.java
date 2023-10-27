@@ -1,4 +1,4 @@
-package com.example.clinicabdt3.Model;
+package com.example.clinicabdt3.Model.Domain;
 
 public class Medico {
     private String nome;

@@ -1,4 +1,4 @@
-package com.example.clinicabdt3.Model;
+package com.example.clinicabdt3.Model.Domain;
 import java.util.Date;
 
 public class Consulta {

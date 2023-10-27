@@ -30,11 +30,12 @@ public class LoginController {
     private Button cadastrarButton;
 
     @FXML
-    void cadastrar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load((getClass().getResource("registro.fxml")));
+    public void handleButtonCadastrar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load((RegistroController.class.getResource("/com/example/clinicabdt3/registro.fxml")));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Cadastro");
         stage.centerOnScreen();
         stage.show();
     }
