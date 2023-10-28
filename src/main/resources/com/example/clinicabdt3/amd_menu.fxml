@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
     <children>
-        <TableView layoutX="652.0" layoutY="102.0" prefHeight="389.0" prefWidth="471.0">
+        <TableView fx:id="consultaTable" layoutX="652.0" layoutY="102.0" prefHeight="389.0" prefWidth="471.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="Data" />
                 <TableColumn prefWidth="75.0" text="Horário" />
@@ -22,12 +22,12 @@
         <AnchorPane layoutX="351.0" layoutY="103.0" prefHeight="180.0" prefWidth="273.0" style="-fx-background-color: #d3d3d3;">
             <children>
                 <Label layoutX="20.0" layoutY="18.0" text="Data" />
-                <DatePicker layoutX="69.0" layoutY="14.0" />
+                <DatePicker fx:id="dataConsulta" layoutX="69.0" layoutY="14.0" />
                 <Label layoutX="13.0" layoutY="48.0" text="Horário" />
-                <TextField layoutX="69.0" layoutY="44.0" prefHeight="25.0" prefWidth="174.0" />
+                <TextField fx:id="horarioTextField" layoutX="69.0" layoutY="44.0" prefHeight="25.0" prefWidth="174.0" />
                 <Label layoutX="13.0" layoutY="83.0" text="Médico" />
-                <TextField layoutX="69.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
-                <TextField layoutX="69.0" layoutY="112.0" prefHeight="25.0" prefWidth="174.0" />
+                <TextField fx:id="medicoTextField" layoutX="69.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
+                <TextField fx:id="pacienteTextField" layoutX="69.0" layoutY="112.0" prefHeight="25.0" prefWidth="174.0" />
                 <Label layoutX="11.0" layoutY="116.0" text="Paciente" />
                 <Button layoutX="9.0" layoutY="149.0" mnemonicParsing="false" text="Excluir" />
                 <Button layoutX="195.0" layoutY="149.0" mnemonicParsing="false" text="Salvar" />
@@ -43,7 +43,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <TableView layoutX="23.0" layoutY="104.0" prefHeight="389.0" prefWidth="299.0">
+        <TableView fx:id="pacienteTable" layoutX="23.0" layoutY="104.0" prefHeight="389.0" prefWidth="299.0">
             <columns>
                 <TableColumn prefWidth="91.0" text="CPF" />
                 <TableColumn prefWidth="130.0" text="NOME" />
@@ -57,9 +57,9 @@
             <Label layoutX="35.0" layoutY="33.0" text="CPF" />
             <Label layoutX="29.0" layoutY="67.0" text="Nome" />
             <Label layoutX="31.0" layoutY="100.0" text="Idade" />
-            <TextField layoutX="76.0" layoutY="29.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="76.0" layoutY="63.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="76.0" layoutY="96.0" prefHeight="25.0" prefWidth="174.0" />
+            <TextField fx:id="cpfTextField" layoutX="76.0" layoutY="29.0" prefHeight="25.0" prefWidth="174.0" />
+            <TextField fx:id="nomeTextField" layoutX="76.0" layoutY="63.0" prefHeight="25.0" prefWidth="174.0" />
+            <TextField fx:id="idadeTextField" layoutX="76.0" layoutY="96.0" prefHeight="25.0" prefWidth="174.0" />
          </children>
       </AnchorPane>
     </children>
