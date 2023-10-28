@@ -26,10 +26,12 @@ public class MedicoDAO {
 
     public boolean inserir(Medico medico){
 
-        String sql = "INSERT INTO medico(crm, nome_med, especialidade, senha) VALUES crm=?, nome_med=?, especialidade=?, senha=?";
+        String sql = "INSERT INTO medico(crm, nome_med, especialidade, senha) VALUES (?,?,?,?)";
 
         try {
+            System.out.println("a");
             PreparedStatement stmt = connection.prepareStatement(sql);
+            System.out.println("a");
             stmt.setString(1, medico.getCRM());
             stmt.setString(2, medico.getNome());
             stmt.setString(3, medico.getEspecialidade());
