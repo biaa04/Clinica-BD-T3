@@ -1,20 +1,22 @@
 package com.example.clinicabdt3.Model.Domain;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Consulta {
 
-    private String idConsulta;
+    private int idConsulta;
     private String paciente;
 
-    private Date date;
-    private String horario;
+    private LocalDate dataConsulta;
+    private Time horario;
 
 
-    public String getIdConsulta() {
+    public int getIdConsulta() {
         return idConsulta;
     }
 
-    public void setIdConsulta(String idConsulta) {
+    public void setIdConsulta(int idConsulta) {
         this.idConsulta = idConsulta;
     }
 
@@ -26,19 +28,19 @@ public class Consulta {
         this.paciente = paciente;
     }
 
-    public String getHorario() {
+    public Time getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
+    public void setHorario(Time horario) {
         this.horario = horario;
     }
-    public Date getDate() {
-        return date;
+    public LocalDate getDataConsulta() {
+        return dataConsulta;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDataConsulta(LocalDate dataConsulta) {
+        this.dataConsulta = dataConsulta;
     }
 
 }
