@@ -1,4 +1,5 @@
 package com.example.clinicabdt3.Controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +28,16 @@ public class medico_menuController {
     @FXML
     void logout(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load((getClass().getResource("login.fxml")));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    void editarDados(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load((getClass().getResource("editarDados.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
@@ -35,5 +45,3 @@ public class medico_menuController {
     }
 
 }
-
-

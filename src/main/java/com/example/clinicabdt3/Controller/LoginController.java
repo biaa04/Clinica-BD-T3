@@ -29,6 +29,9 @@ public class LoginController {
     @FXML
     private Button cadastrarButton;
 
+    String cpf = CPFTextField.getText();                 //Usuário e senha
+    String senha = senhaTextField.getText();
+
     @FXML
     public void handleButtonCadastrar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load((CadastroController.class.getResource("/com/example/clinicabdt3/cadastro.fxml")));

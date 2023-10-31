@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
          <children>
@@ -57,7 +57,7 @@
             <Button fx:id="logoutbutton" layoutX="59.0" layoutY="424.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="74.0" text="SAIR" />
          </children>
       </AnchorPane>
-      <TableView editable="true" layoutX="217.0" layoutY="94.0" prefHeight="409.0" prefWidth="935.0" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
+      <TableView fx:id="tableConsulta" editable="true" layoutX="217.0" layoutY="94.0" prefHeight="409.0" prefWidth="935.0" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css">
         <columns>
           <TableColumn prefWidth="127.80000305175781" text="data" />
           <TableColumn prefWidth="129.0" text="Horario" />
