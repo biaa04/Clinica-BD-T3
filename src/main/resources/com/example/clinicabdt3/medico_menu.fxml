@@ -68,7 +68,7 @@
       <TextField fx:id="destinationTextField" layoutX="272.0" layoutY="33.0" prefHeight="42.0" prefWidth="841.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@../../../../../../../../../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css" />
       <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="293.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Downloads/84236.png" />
+            <Image url="@../../../../../../img/1810674.png" />
          </image>
       </ImageView>
       <Button layoutX="24.0" layoutY="302.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="62.0" style="-fx-background-color: #d3d3d3;" text="Editar Perfil">
