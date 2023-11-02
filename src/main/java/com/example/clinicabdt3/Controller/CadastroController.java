@@ -5,12 +5,18 @@ import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
 import com.example.clinicabdt3.Model.Domain.Medico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
@@ -59,6 +65,17 @@ public class CadastroController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+    public void LoginButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load((LoginController.class.getResource("/com/example/clinicabdt3/login.fxml")));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("login");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     private boolean validarEntradaDeDados(){
