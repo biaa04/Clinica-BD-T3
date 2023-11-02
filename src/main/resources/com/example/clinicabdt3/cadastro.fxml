@@ -14,7 +14,7 @@
       <PasswordField fx:id="TextFieldSenha" layoutX="226.0" layoutY="307.0" prefHeight="26.0" prefWidth="394.0" />
       <TextField fx:id="TextFieldEspecialidade" layoutX="225.0" layoutY="245.0" prefHeight="26.0" prefWidth="394.0" />
       <TextField fx:id="TextFieldCRM" layoutX="225.0" layoutY="188.0" prefHeight="26.0" prefWidth="394.0" />
-      <Button fx:id="LoginButton" layoutX="264.0" layoutY="460.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="login" />
+      <Button fx:id="LoginButton" layoutX="264.0" layoutY="460.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="17.0" prefWidth="150.0" text="login" />
       <Label layoutX="283.0" layoutY="437.0" text="Quer voltar ao login?" />
       <Label layoutX="267.0" layoutY="57.0" text="CADASTRO">
          <font>
