@@ -7,7 +7,7 @@ public class Consulta {
 
     private int idConsulta;
     private String paciente;
-
+    private String medico;
     private LocalDate dataConsulta;
     private Time horario;
 
@@ -26,6 +26,14 @@ public class Consulta {
 
     public void setPaciente(String paciente) {
         this.paciente = paciente;
+    }
+
+    public String getMedico() {
+        return medico;
+    }
+
+    public void setMedico(String medico) {
+        this.medico = medico;
     }
 
     public Time getHorario() {

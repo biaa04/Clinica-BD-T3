@@ -60,6 +60,26 @@ public class ConsultaDAO {
 
 //Não fiz alterar no consulta
 
+//    public boolean alterar(Consulta consulta){
+//
+//        String sql = "UPTADE medico SET crm=?, nome_med=?, especialidade=?, senha=? WHERE crm=?";
+//
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(sql);
+//            stmt.setString(1, medico.getCRM());
+//            stmt.setString(2, medico.getNome());
+//            stmt.setString(3, medico.getEspecialidade());
+//            stmt.setString(4, medico.getSenha());
+//            stmt.execute();
+//            return true;
+//
+//        }catch (SQLException ex){
+//            Logger.getLogger(MedicoDAO.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("Exception no alterar do MedicoDAO");
+//            return false;
+//        }
+//    }
+
     public List<Consulta> listar(){
         String sql = "SELECT * FROM consulta";
         List<Consulta> listConsulta = new ArrayList<>();

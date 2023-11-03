@@ -6,10 +6,8 @@ import java.util.Date;
 public class Paciente {
 
     private String nome;
-    private String CPF;
+    private String cpf;
     private LocalDate data_nascimento;
-    private String plano_de_saude;
-    private String senha;
 
 
     public String getNome() {
@@ -21,11 +19,11 @@ public class Paciente {
     }
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCPF(String cpf) {
+        this.cpf = cpf;
     }
 
     public LocalDate getData_nascimento() {
@@ -36,19 +34,4 @@ public class Paciente {
         this.data_nascimento = data_nascimento;
     }
 
-    public String getPlano_de_saude() {
-        return plano_de_saude;
-    }
-
-    public void setPlano_de_saude(String plano_de_saude) {
-        this.plano_de_saude = plano_de_saude;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 }
