@@ -23,6 +23,14 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 8, 0, 0, 2);
 
   }
+  .blocoFundo{
+    -fx-background-color: #bdbdbd;
+    -fx-background-radius: 2px;
+    -fx-border-color: #dadada;
+    -fx-border-radius: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 8, 0, 0, 2);
+
+  }
   .pesquisa{
     -fx-background-color: #ffffff;
     -fx-background-radius: 10px;
@@ -48,4 +56,46 @@
     -fx-background-color: #bad2f7;
     -fx-text-fill:#27124B;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 4), 8, 0, 0, 2);
+  }
+
+  .buttonCadSalvar{
+    -fx-background-color:#f5f4f4;
+      -fx-border-radius: 10px;
+      -fx-border-vidth: 5px 5px 5px 5px;
+      -fx-background-radius: 10px;
+      -fx-border-style:solid;
+      -fx-border-color: linear-gradient(to bottom right, #c9f7c5, #c9f7c5 )
+  }
+  
+  .buttonCadSalvar:hover { /* passar o mouse*/
+    -fx-background-color:#02aa2c ;
+    -fx-text-fill: #ffffff;
+  }
+
+  .buttonCadEditar{
+    -fx-background-color:#f5f4f4;
+      -fx-border-radius: 10px;
+      -fx-border-vidth: 5px 5px 5px 5px;
+      -fx-background-radius: 10px;
+      -fx-border-style:solid;
+      -fx-border-color: linear-gradient(to bottom right, #e9c54f, #e9c54f )
+  }
+  
+  .buttonCadEditar:hover { /* passar o mouse*/
+    -fx-background-color:#ebb504 ;
+    -fx-text-fill: #ffffff;
+  }
+
+  .buttonCadExcluir{
+    -fx-background-color:#f5f4f4;
+      -fx-border-radius: 10px;
+      -fx-border-vidth: 5px 5px 5px 5px;
+      -fx-background-radius: 10px;
+      -fx-border-style:solid;
+      -fx-border-color: linear-gradient(to bottom right, #e9614f, #e9614f )
+  }
+  
+  .buttonCadExcluir:hover { /* passar o mouse*/
+    -fx-background-color:#ebb504 ;
+    -fx-text-fill: #ffffff;
   }
