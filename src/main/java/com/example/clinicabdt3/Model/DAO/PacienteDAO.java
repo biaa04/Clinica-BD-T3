@@ -24,13 +24,15 @@ public class PacienteDAO {
     public boolean inserir(Paciente paciente){
 
 
-        String sql = "INSERT INTO paciente(nome_pac, cpf, data_nascimento) VALUES(?,?,?)";
+        String sql = "INSERT INTO paciente(cpf, nome_pac,data_nascimento, id_paciente) VALUES(?,?,?,?)";
 
         try {
+            System.out.println("inserir");
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, paciente.getCPF());
             stmt.setString(2, paciente.getNome());
             stmt.setDate(3, Date.valueOf(paciente.getData_nascimento()));
+            stmt.setInt(4, paciente.getIdPaciente());
             stmt.execute();
             return true;
 
@@ -88,6 +90,7 @@ public class PacienteDAO {
         List<Paciente> listPaciente = new ArrayList<>();
 
         try {
+        System.out.println("ENtrou no listar");
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();
 
@@ -97,6 +100,7 @@ public class PacienteDAO {
                 paciente.setCPF(resultado.getString("cpf"));
                 paciente.setNome(resultado.getString("nome_pac"));
                 paciente.setData_nascimento(resultado.getDate("data_nascimento").toLocalDate());
+                paciente.setIdPaciente(resultado.getInt("id_paciente"));
                 listPaciente.add(paciente);
 
             }

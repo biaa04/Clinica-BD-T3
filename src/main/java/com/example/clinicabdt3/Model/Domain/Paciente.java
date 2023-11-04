@@ -8,6 +8,7 @@ public class Paciente {
     private String nome;
     private String cpf;
     private LocalDate data_nascimento;
+    private int idPaciente;
 
 
     public String getNome() {
@@ -34,4 +35,12 @@ public class Paciente {
         this.data_nascimento = data_nascimento;
     }
 
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
 }

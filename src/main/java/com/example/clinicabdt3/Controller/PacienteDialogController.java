@@ -1,6 +1,7 @@
 package com.example.clinicabdt3.Controller;
 
 import com.example.clinicabdt3.Model.Domain.Paciente;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class PacienteDialogController implements Initializable {
@@ -26,6 +28,9 @@ public class PacienteDialogController implements Initializable {
 
     @FXML
     private TextField txtCPFPaciente;
+
+    @FXML
+    private TextField txtIDPaciente;
 
     @FXML
     private TextField txtNomePaciente;
@@ -48,7 +53,7 @@ public class PacienteDialogController implements Initializable {
 
     @FXML
     void handleButtonCancelar(ActionEvent event) {
-
+        stage.close();
     }
 
     @FXML
@@ -57,10 +62,6 @@ public class PacienteDialogController implements Initializable {
             paciente.setCPF(txtCPFPaciente.getText());
             paciente.setNome((txtNomePaciente.getText()));
             paciente.setData_nascimento(dPNascimento.getValue());
-
-            buttonConfirmarClicked = true;
-            stage.close();
-
         }
 
     }
@@ -98,5 +99,13 @@ public class PacienteDialogController implements Initializable {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }
