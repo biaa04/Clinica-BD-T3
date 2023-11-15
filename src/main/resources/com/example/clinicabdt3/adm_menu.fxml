@@ -31,72 +31,72 @@
             </ImageView>
          </children>
         </AnchorPane>
-      <TableView editable="true" layoutX="240.0" layoutY="78.0" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css">
+      <TableView editable="true" layoutX="240.0" layoutY="78.0" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="78.0">
          <columns>
             <TableColumn prefWidth="64.0" text="Data" />
             <TableColumn prefWidth="79.0" text="Horario" />
             <TableColumn minWidth="0.0" prefWidth="282.0" text="Paciente" />
-            <TableColumn prefWidth="135.0" text="Medico" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="135.0" text="Medico" />
          </columns>
       </TableView>
-      <TextField fx:id="destinationTextField" layoutX="254.0" layoutY="25.0" prefHeight="42.0" prefWidth="521.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" />
+      <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
       <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="269.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../img/1810674.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="814.0" layoutY="15.0" prefHeight="492.0" prefWidth="339.0" style="-fx-background-color: #fff;" styleClass="blocoFundo" stylesheets="@style2.css">
+      <AnchorPane layoutX="814.0" layoutY="15.0" prefHeight="492.0" prefWidth="339.0" style="-fx-background-color: #fff;" styleClass="blocoFundo" stylesheets="@style2.css" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="15.0">
          <children>
-            <Label layoutX="41.0" layoutY="74.0" prefHeight="17.0" prefWidth="29.0" text="ID">
+            <Label layoutX="41.0" layoutY="74.0" prefHeight="17.0" prefWidth="29.0" text="ID" AnchorPane.topAnchor="74.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="38.0" layoutY="98.0" prefHeight="27.0" prefWidth="74.0" />
-            <Label layoutX="38.0" layoutY="135.0" prefHeight="17.0" prefWidth="74.0" text="Paciente">
+            <TextField layoutX="38.0" layoutY="98.0" prefHeight="27.0" prefWidth="74.0" AnchorPane.topAnchor="98.0" />
+            <Label layoutX="38.0" layoutY="135.0" prefHeight="17.0" prefWidth="74.0" text="Paciente" AnchorPane.topAnchor="135.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <ComboBox layoutX="37.0" layoutY="157.0" prefHeight="33.0" prefWidth="281.0" />
-            <Label layoutX="38.0" layoutY="201.0" prefHeight="17.0" prefWidth="74.0" text="Médico">
+            <ComboBox layoutX="37.0" layoutY="157.0" prefHeight="33.0" prefWidth="281.0" AnchorPane.topAnchor="157.0" />
+            <Label layoutX="38.0" layoutY="201.0" prefHeight="17.0" prefWidth="74.0" text="Médico" AnchorPane.topAnchor="201.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <DatePicker layoutX="39.0" layoutY="287.0" prefHeight="33.0" prefWidth="281.0" />
-            <Label layoutX="38.0" layoutY="266.0" prefHeight="21.0" prefWidth="140.0" text="Data da Consulta">
+            <DatePicker layoutX="39.0" layoutY="287.0" prefHeight="33.0" prefWidth="281.0" AnchorPane.bottomAnchor="172.0" />
+            <Label layoutX="41.0" layoutY="266.0" prefHeight="21.0" prefWidth="131.0" text="Data da Consulta" AnchorPane.bottomAnchor="205.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="39.0" layoutY="355.0" prefHeight="33.0" prefWidth="281.0" />
-            <Label layoutX="38.0" layoutY="332.0" prefHeight="21.0" prefWidth="149.0" text="Horario da Consulta">
+            <TextField layoutX="39.0" layoutY="355.0" prefHeight="33.0" prefWidth="281.0" AnchorPane.bottomAnchor="107.0" />
+            <Label layoutX="41.0" layoutY="332.0" prefHeight="21.0" prefWidth="156.0" text="Horario da Consulta" AnchorPane.bottomAnchor="139.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="46.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235">
+            <Button layoutX="46.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235" AnchorPane.bottomAnchor="53.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="137.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" styleClass="buttonCadEditar" text="ATUALIZAR" textFill="#ebb504">
+            <Button layoutX="137.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" styleClass="buttonCadEditar" text="ATUALIZAR" textFill="#ebb504" AnchorPane.bottomAnchor="54.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="240.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b">
+            <Button layoutX="240.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b" AnchorPane.bottomAnchor="54.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="57.0" layoutY="21.0" text="Gerenciar Consulta" textFill="#3b3c39">
+            <Label layoutX="60.0" layoutY="36.0" prefHeight="39.0" prefWidth="250.0" text="Gerenciar Consulta" textFill="#3b3c39" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="36.0">
                <font>
                   <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <ComboBox layoutX="37.0" layoutY="222.0" prefHeight="33.0" prefWidth="281.0" />
+            <ComboBox layoutX="37.0" layoutY="222.0" prefHeight="33.0" prefWidth="281.0" AnchorPane.topAnchor="222.0" />
          </children>
       </AnchorPane>
     </children>
