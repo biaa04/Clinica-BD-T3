@@ -96,6 +96,6 @@
   }
   
   .buttonCadExcluir:hover { /* passar o mouse*/
-    -fx-background-color:#ebb504 ;
+    -fx-background-color: #ff0000;
     -fx-text-fill: #ffffff;
   }
