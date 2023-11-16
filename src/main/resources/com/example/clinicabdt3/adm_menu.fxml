@@ -50,10 +50,10 @@
         </AnchorPane>
       <TableView editable="true" layoutX="240.0" layoutY="78.0" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="78.0">
          <columns>
-            <TableColumn prefWidth="64.0" text="Data" />
-            <TableColumn prefWidth="79.0" text="Horario" />
-            <TableColumn minWidth="0.0" prefWidth="282.0" text="Paciente" />
-            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="135.0" text="Medico" />
+            <TableColumn maxWidth="300" prefWidth="150" text="Data" />
+            <TableColumn maxWidth="300" prefWidth="150" text="Horario" />
+            <TableColumn maxWidth="300" prefWidth="150" text="Paciente" />
+            <TableColumn maxWidth="300" prefWidth="150" text="Medico" />
          </columns>
       </TableView>
       <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
