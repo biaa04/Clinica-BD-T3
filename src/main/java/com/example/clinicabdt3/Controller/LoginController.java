@@ -43,21 +43,25 @@ public class LoginController {
     @FXML
     void login(ActionEvent event) throws IOException {
         //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
+        System.out.println(CPFTextField.getText());
         if(CPFTextField.getText().equals("admin")) {
+            System.out.println("y");
             irAdminMenu(event);
+            System.out.println("yyyy");
             //se o texto digitado for igual o nome 'admin' ele vai executar a função para ir para menu adm
         }
-
+        System.out.println("yt");
 
     }
 
-    private void irAdminMenu(ActionEvent event) throws IOException
+    public void irAdminMenu(ActionEvent event) throws IOException
     {
         //função para ir para menu adm
         //FXMLLoader loader = new FXMLLoader((getClass().getResource("nome da pagina")));
         //Parent root = loader.load();
+        Parent root = FXMLLoader.load(MenuAdmController.class.getResource("/com/example/clinicabdt3/adm_menu.fxml"));
 
-        String css = this.getClass().getResource("style2.css").toExternalForm();
+        String css = MenuAdmController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
 
