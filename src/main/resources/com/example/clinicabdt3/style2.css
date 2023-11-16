@@ -6,8 +6,6 @@
   }
   .table-view .column-header, filter{
     -fx-background-color: #547cb9 ;
-    -fx-size: 50px;
-    
   }
   
   .table-view .column-header .label{
