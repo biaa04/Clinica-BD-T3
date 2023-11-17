@@ -84,8 +84,6 @@ public class LoginController {
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Message");
                         alert.setHeaderText(null);
-                        alert.setContentText("Login realizado com sucesso!");
-                        alert.showAndWait();
                         irMedicoMenu(event);
 
                     } else {
