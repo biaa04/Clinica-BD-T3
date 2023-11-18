@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
     <children>
         <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="114.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../img/6073873.png" />
+                        <Image url="@../../../../../img/IconFoto.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="35.0" top="20.0" />
@@ -37,7 +37,7 @@
                         <Insets left="8.0" top="-30.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" text="PACIENTES" />
+                  <Button mnemonicParsing="false" onAction="#handleButtonTelaPaciente" prefHeight="47.0" prefWidth="185.0" text="PACIENTES" />
                   <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" text="CONSULTAS" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="75.0" text="Sair">
                      <VBox.margin>
@@ -59,7 +59,7 @@
       <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
       <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="269.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../img/1810674.png" />
+            <Image url="@../../../../../img/Pesquisar.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="814.0" layoutY="15.0" prefHeight="492.0" prefWidth="339.0" style="-fx-background-color: #fff;" styleClass="blocoFundo" stylesheets="@style2.css" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="15.0">

@@ -41,10 +41,10 @@ public class LoginController {
     }
 
     @FXML
-    void login(ActionEvent event) throws IOException {
+    public void login(ActionEvent event) throws IOException {
         //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
         System.out.println(CPFTextField.getText());
-        if(CPFTextField.getText().equals("admin")) {
+        if(CPFTextField.getText().equals("admin") && senhaTextField.getText().equals("admin")) {
             System.out.println("y");
             irAdminMenu(event);
             System.out.println("yyyy");

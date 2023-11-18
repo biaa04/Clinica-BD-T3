@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="especialidade" fitHeight="111.0" fitWidth="135.0" layoutX="43.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../img/6073873.png" />
+                  <Image url="@../../../../../img/IconFoto.png" />
                </image>
             </ImageView>
             <Text fx:id="CRM" layoutX="13.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25352" textAlignment="CENTER" wrappingWidth="169.9166717529297">
@@ -68,7 +68,7 @@
       <TextField fx:id="destinationTextField" layoutX="272.0" layoutY="33.0" prefHeight="42.0" prefWidth="841.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" />
       <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="293.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../img/1810674.png" />
+            <Image url="@../../../../../img/Pesquisar.png" />
          </image>
       </ImageView>
       <Button layoutX="24.0" layoutY="302.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="62.0" style="-fx-background-color: #d3d3d3;" text="Editar Perfil">

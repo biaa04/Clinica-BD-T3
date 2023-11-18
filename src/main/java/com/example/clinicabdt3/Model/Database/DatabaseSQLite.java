@@ -14,9 +14,8 @@ public class DatabaseSQLite{
         try {
             //Drive utilizado para conectar o código ao banco
             Class.forName("org.sqlite.JDBC");
-            System.out.println("1");
             this.connection = DriverManager.getConnection("jdbc:sqlite:identifier.sqlite");
-            System.out.println("2");
+            System.out.println("Database SQLite");
             return this.connection;
 
         }catch (SQLException | ClassNotFoundException ex){

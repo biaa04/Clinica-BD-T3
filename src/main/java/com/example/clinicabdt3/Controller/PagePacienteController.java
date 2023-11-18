@@ -14,15 +14,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.layout.AnchorPane;
+import org.w3c.dom.events.MouseEvent;
 
 public class PagePacienteController implements Initializable {
 
@@ -93,6 +99,7 @@ public class PagePacienteController implements Initializable {
         carregarTableViewPaciente();
 
 
+
     }
 
     public void carregarTableViewPaciente() {
@@ -129,26 +136,26 @@ public class PagePacienteController implements Initializable {
 
     @FXML
     public void handlePacienteEditar() throws IOException{
+        System.out.println("klnjncjsd");
+        System.out.println(txtIDPaciente.getText());
 
-        Paciente paciente = tableViewPaciente.getSelectionModel().getSelectedItem();
+        Paciente paciente = pacienteDAO.listar().get(Integer.parseInt(txtIDPaciente.getText())-1);
+        System.out.println(paciente);
 
         if (paciente != null){
 
-//            txtCPFPaciente.setText(paciente.getCPF());
-//            txtNomePaciente.setText(paciente.getNome());
-//            dPNascimento.setValue(paciente.getData_nascimento());
-//            txtIDPaciente.setText(String.valueOf(paciente.getIdPaciente()));
+            paciente.setNome(txtNomePaciente.getText());
+            paciente.setCPF(txtCPFPaciente.getText());
+            paciente.setData_nascimento(dPNascimento.getValue());
 
+            pacienteDAO.alterar(paciente);
+            carregarTableViewPaciente();
 
-            if (editado){
-                pacienteDAO.alterar(paciente);
-                carregarTableViewPaciente();
-            }
 
         }else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Por favor, escolha um cliente da Tabela!");
+            alert.setContentText("Por favor, escolha um paciente da Tabela!");
             alert.show();
         }
 
@@ -157,23 +164,22 @@ public class PagePacienteController implements Initializable {
     @FXML
     public void handlePacienteExcluir() throws IOException{
 
+        Paciente paciente = pacienteDAO.listar().get(Integer.parseInt(txtIDPaciente.getText())-1);
+
+        if (paciente != null){
+
+            pacienteDAO.remover(paciente);
+            carregarTableViewPaciente();
+
+        }else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Por favor, escolha um paciente da Tabela!");
+            alert.show();
+
+        }
     }
 
-    public boolean showPacienteDialog(Paciente paciente) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(PacienteDialogController.class.getResource("/com/example/clinicabdt3/pacienteDialog.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Cadastro Paciente");
-        stage.setScene(scene);
-
-        PacienteDialogController controller = fxmlLoader.getController();
-        controller.setStage(stage);
-        controller.setPaciente(paciente);
-
-        stage.showAndWait();
-
-        return controller.isButtonConfirmarClicked();
-    }
 
     @FXML
     void logout(ActionEvent event) {
@@ -209,19 +215,34 @@ public class PagePacienteController implements Initializable {
 
     }
 
-    public  boolean showPacienteDialog() throws IOException{
+    @FXML
+    public void limparTextField(javafx.scene.input.MouseEvent mouseEvent) {
+        txtIDPaciente.setText(null);
+        txtNomePaciente.setText(null);
+        txtCPFPaciente.setText(null);
+        dPNascimento.setValue(null);
 
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/clinicabdt3/pacienteDialog.fxml"));
-        System.out.println("annnnnn");
-        anchorPaneEditar.getChildren().setAll(a);
-
-        txtCPFPaciente.setText(paciente.getCPF());
-        txtNomePaciente.setText(paciente.getNome());
-        dPNascimento.setValue(paciente.getData_nascimento());
-        txtIDPaciente.setText(String.valueOf(paciente.getIdPaciente()));
-        return true;
     }
 
+
+    public void selecionarLinhaPaciente(javafx.scene.input.MouseEvent mouseEvent) {
+
+        Paciente paciente = tableViewPaciente.getSelectionModel().getSelectedItem();
+
+        txtIDPaciente.setText(String.valueOf(paciente.getIdPaciente()));
+        txtNomePaciente.setText(paciente.getNome());
+        txtCPFPaciente.setText(paciente.getCPF());
+        dPNascimento.setValue(paciente.getData_nascimento());
+        System.out.println("Selecionou paciente");
+
+    }
+
+    public void pesquisarPaciente(KeyEvent keyEvent) {
+
+        if (keyEvent.getCode() == KeyCode.ENTER){
+
+        }
+    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -238,4 +259,5 @@ public class PagePacienteController implements Initializable {
     public void setEditado(boolean editado) {
         this.editado = editado;
     }
+
 }

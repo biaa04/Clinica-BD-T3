@@ -1,6 +1,8 @@
 package com.example.clinicabdt3.Model.Domain;
 
 public class Medico {
+
+    private int id;
     private String nome;
     private String CRM;
     private String especialidade;
@@ -15,6 +17,14 @@ public class Medico {
         this.CRM = CRM;
         this.especialidade = especialidade;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEspecialidade() {

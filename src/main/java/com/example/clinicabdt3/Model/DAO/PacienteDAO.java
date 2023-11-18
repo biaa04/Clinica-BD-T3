@@ -65,7 +65,8 @@ public class PacienteDAO {
 
     public boolean alterar(Paciente paciente){
 
-        String sql = "UPDATE paciente SET cpf=?, nome_pac=?, data_nascimento=? WHERE cpf=?";
+        String sql = "UPDATE paciente SET cpf=?, nome_pac=?, data_nascimento=? WHERE id_paciente=?";
+        System.out.println("Alterar PacienteDAO1");
 
         try {
 
@@ -73,7 +74,10 @@ public class PacienteDAO {
             stmt.setString(1, paciente.getCPF());
             stmt.setString(2, paciente.getNome());
             stmt.setDate(3, Date.valueOf(paciente.getData_nascimento()));
+            stmt.setString(4, paciente.getCPF());
+            //stmt.setInt(4, paciente.getIdPaciente());
             stmt.execute();
+            System.out.println("Alterar PacienteDAO2");
             return true;
         }catch (SQLException ex){
 
