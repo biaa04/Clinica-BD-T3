@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -182,7 +184,18 @@ public class PagePacienteController implements Initializable {
 
 
     @FXML
-    void logout(ActionEvent event) {
+    void logout(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(LoginController.class.getResource("/com/example/clinicabdt3/login.fxml"));
+
+        String css = LoginController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
 
     }
 
@@ -240,8 +253,34 @@ public class PagePacienteController implements Initializable {
     public void pesquisarPaciente(KeyEvent keyEvent) {
 
         if (keyEvent.getCode() == KeyCode.ENTER){
+            System.out.println("PESQUISANDO");
 
+
+            columnPacienteID.setCellValueFactory(new PropertyValueFactory<>("idPaciente"));
+            columnPacienteCpf.setCellValueFactory(new PropertyValueFactory<>("CPF"));
+            columnPacienteNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+            columnPacienteNascimento.setCellValueFactory(new PropertyValueFactory<>("data_nascimento"));
+
+            listPaciente = pacienteDAO.buscar(destinationTextField.getText());
+            observableListPaciente = FXCollections.observableArrayList(listPaciente);
+            tableViewPaciente.setItems(observableListPaciente);
         }
+    }
+
+    @FXML
+    public void handleButtonTelaConsulta(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(MenuAdmController.class.getResource("/com/example/clinicabdt3/adm_menu.fxml"));
+
+        String css = MenuAdmController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+
     }
 
     public Paciente getPaciente() {

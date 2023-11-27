@@ -116,5 +116,36 @@ public class PacienteDAO {
         return listPaciente;
     }
 
+    public List<Paciente> buscar(String pesquisa){
+        String sql = "SELECT * FROM paciente WHERE id_paciente LIKE ? or cpf LIKE ? or nome_pac LIKE ? or data_nascimento LIKE ?";
+        List<Paciente> buscarPaciente = new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, "%"+pesquisa+"%");
+            stmt.setString(2, "%"+pesquisa+"%");
+            stmt.setString(3, "%"+pesquisa+"%");
+            stmt.setString(4, "%"+pesquisa+"%");
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+                Paciente paciente = new Paciente();
+                paciente.setIdPaciente(resultado.getInt("id_paciente"));
+                paciente.setCPF(resultado.getString("cpf"));
+                paciente.setNome(resultado.getString("nome_pac"));
+                paciente.setData_nascimento(resultado.getDate("data_nascimento").toLocalDate());
+                buscarPaciente.add(paciente);
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no buscar do PacienteDAO");
+        }
+        return buscarPaciente;
+
+    }
+
 
 }

@@ -1,16 +1,22 @@
 package com.example.clinicabdt3.Controller;
 import com.example.clinicabdt3.Controller.CadastroController;
+import com.example.clinicabdt3.Model.Database.DatabaseFactory;
+import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class LoginController {
@@ -29,6 +35,13 @@ public class LoginController {
     @FXML
     private Button cadastrarButton;
 
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
+    private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
+    private final Connection connection = database.conectar();
+
+
     @FXML
     public void handleButtonCadastrar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load((CadastroController.class.getResource("/com/example/clinicabdt3/cadastro.fxml")));
@@ -38,20 +51,6 @@ public class LoginController {
         stage.setTitle("Cadastro");
         stage.centerOnScreen();
         stage.show();
-    }
-
-    @FXML
-    public void login(ActionEvent event) throws IOException {
-        //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
-        System.out.println(CPFTextField.getText());
-        if(CPFTextField.getText().equals("admin") && senhaTextField.getText().equals("admin")) {
-            System.out.println("y");
-            irAdminMenu(event);
-            System.out.println("yyyy");
-            //se o texto digitado for igual o nome 'admin' ele vai executar a função para ir para menu adm
-        }
-        System.out.println("yt");
-
     }
 
     public void irAdminMenu(ActionEvent event) throws IOException
@@ -66,11 +65,80 @@ public class LoginController {
         scene.getStylesheets().add(css);
 
         // controller = loader.getController();
-       //controller._initialize(); -> vai ter que inicializar a tabela do admin assim que abre
+        //controller._initialize(); -> vai ter que inicializar a tabela do admin assim que abre
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+    }
+
+    public void irMedicoMenu(ActionEvent event) throws IOException
+    {
+
+        Parent root = FXMLLoader.load(medico_menuController.class.getResource("/com/example/clinicabdt3/menuMedico.fxml"));
+
+        String css = medico_menuController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML
+    public void login(ActionEvent event) throws IOException {
+
+        //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
+
+        // se o texto digitado por admin admin abre a tela adm_menu
+        System.out.println(CPFTextField.getText());
+        if(CPFTextField.getText().equals("admin") || senhaTextField.getText().equals("admin")) {
+
+            irAdminMenu(event);
+        }else {
+            //precisa procurar o nome digitado no banco e se for achado terá condições que levam a diferentes telas
+            String sql = "SELECT crm, senha FROM medico WHERE crm = ? and senha = ?";
+            connect = database.conectar();
+
+            try {
+
+                Alert alert;
+                if (CPFTextField.getText().isEmpty() || senhaTextField.getText().isEmpty()) {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erro Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("por favor preencha todos os campos em branco");
+                    alert.showAndWait();
+                } else {
+                    prepare = connect.prepareStatement(sql);
+                    prepare.setString(1, CPFTextField.getText());
+                    prepare.setString(2, senhaTextField.getText());
+
+                    result = prepare.executeQuery();
+
+                    if (result.next()) {
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information Message");
+                        alert.setHeaderText(null);
+                        irMedicoMenu(event);
+
+                    } else {
+                        alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Erro Message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("CRM ou Senha incorretos");
+                        alert.showAndWait();
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
 }
