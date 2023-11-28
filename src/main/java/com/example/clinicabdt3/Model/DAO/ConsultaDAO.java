@@ -1,5 +1,7 @@
 package com.example.clinicabdt3.Model.DAO;
 
+import com.example.clinicabdt3.Model.Database.DatabaseFactory;
+import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
 import com.example.clinicabdt3.Model.Domain.Consulta;
 import com.example.clinicabdt3.Model.Domain.Medico;
 import com.example.clinicabdt3.Model.Domain.Paciente;
@@ -21,6 +23,8 @@ public class ConsultaDAO {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
+
+
 
     public boolean inserir(Consulta consulta){
 
@@ -109,4 +113,6 @@ public class ConsultaDAO {
         }
         return listConsulta;
     }
+
+
 }

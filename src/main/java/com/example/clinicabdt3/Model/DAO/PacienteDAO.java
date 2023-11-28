@@ -147,5 +147,30 @@ public class PacienteDAO {
 
     }
 
+    public List<String> pegarPacienteConsulta(){
+        String sql = "SELECT nome_pac FROM paciente";
+        List<String> listPaciente = new ArrayList<>();
+
+        try {
+            System.out.println("ppppppppppppppppp");
+            System.out.println("ENtrou no listar");
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+
+                Paciente paciente = new Paciente();
+                paciente.setNome(resultado.getString("nome_pac"));
+                listPaciente.add(paciente.getNome());
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no listar do PacienteDAO");
+        }
+        return listPaciente;
+    }
+
 
 }

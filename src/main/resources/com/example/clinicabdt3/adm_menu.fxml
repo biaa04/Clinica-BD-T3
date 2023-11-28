@@ -52,8 +52,8 @@
          <columns>
             <TableColumn maxWidth="300" prefWidth="150" text="Data" />
             <TableColumn maxWidth="300" prefWidth="150" text="Horario" />
-            <TableColumn maxWidth="300" prefWidth="150" text="Paciente" />
-            <TableColumn maxWidth="300" prefWidth="150" text="Medico" />
+            <TableColumn maxWidth="300" prefWidth="143.199951171875" text="Paciente" />
+            <TableColumn maxWidth="300" prefWidth="157.5999755859375" text="Medico" />
          </columns>
       </TableView>
       <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
@@ -85,7 +85,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="33.0" prefWidth="307.0" />
+                  <ComboBox fx:id="comboBoxPaciente" prefHeight="33.0" prefWidth="307.0" />
                   <Label prefHeight="17.0" prefWidth="74.0" text="Médico">
                      <font>
                         <Font size="15.0" />
