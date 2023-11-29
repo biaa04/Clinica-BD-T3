@@ -108,4 +108,29 @@ public class MedicoDAO {
         }
         return listMedico;
     }
+
+    public List<String> pegarMedicoConsulta(){
+        String sql = "SELECT crm FROM medico";
+        List<String> listMedico = new ArrayList<>();
+
+        try {
+            System.out.println("uuuuuuuuuuuuuuuuuu");
+            System.out.println("ENtrou no listar");
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+
+                Medico medico = new Medico();
+                medico.setCRM(resultado.getString("crm"));
+                listMedico.add(medico.getCRM());
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no listar do MedicoDAO");
+        }
+        return listMedico;
+    }
 }

@@ -1,7 +1,5 @@
 package com.example.clinicabdt3.Model.Domain;
-import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Consulta {
 
@@ -9,7 +7,7 @@ public class Consulta {
     private String paciente;
     private String medico;
     private LocalDate dataConsulta;
-    private Time horario;
+    private String horario;
 
 
     public int getIdConsulta() {
@@ -36,11 +34,11 @@ public class Consulta {
         this.medico = medico;
     }
 
-    public Time getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(Time horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
     public LocalDate getDataConsulta() {

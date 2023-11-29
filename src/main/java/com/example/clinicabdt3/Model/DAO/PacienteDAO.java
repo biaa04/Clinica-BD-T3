@@ -148,7 +148,7 @@ public class PacienteDAO {
     }
 
     public List<String> pegarPacienteConsulta(){
-        String sql = "SELECT nome_pac FROM paciente";
+        String sql = "SELECT cpf FROM paciente";
         List<String> listPaciente = new ArrayList<>();
 
         try {
@@ -160,8 +160,8 @@ public class PacienteDAO {
             while (resultado.next()){
 
                 Paciente paciente = new Paciente();
-                paciente.setNome(resultado.getString("nome_pac"));
-                listPaciente.add(paciente.getNome());
+                paciente.setCPF(resultado.getString("cpf"));
+                listPaciente.add(paciente.getCPF());
 
             }
 

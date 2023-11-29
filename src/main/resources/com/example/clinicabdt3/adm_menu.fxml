@@ -48,12 +48,12 @@
             </VBox>
          </children>
         </AnchorPane>
-      <TableView editable="true" layoutX="240.0" layoutY="78.0" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="78.0">
+      <TableView fx:id="tableViewConsulta" editable="true" layoutX="240.0" layoutY="78.0" onMouseClicked="#selecionarLinhaConsulta" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="78.0">
          <columns>
-            <TableColumn maxWidth="300" prefWidth="150" text="Data" />
-            <TableColumn maxWidth="300" prefWidth="150" text="Horario" />
-            <TableColumn maxWidth="300" prefWidth="143.199951171875" text="Paciente" />
-            <TableColumn maxWidth="300" prefWidth="157.5999755859375" text="Medico" />
+            <TableColumn fx:id="columnConsultaData" maxWidth="300" prefWidth="150" text="Data" />
+            <TableColumn fx:id="columnConsultaHorario" maxWidth="300" prefWidth="150" text="Horario" />
+            <TableColumn fx:id="columnConsultaPaciente" maxWidth="300" prefWidth="143.199951171875" text="Paciente" />
+            <TableColumn fx:id="columnConsultaMedico" maxWidth="300" prefWidth="157.5999755859375" text="Medico" />
          </columns>
       </TableView>
       <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
@@ -79,7 +79,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="33.0" prefWidth="281.0" />
+                  <TextField fx:id="txtIDConsulta" prefHeight="33.0" prefWidth="281.0" />
                   <Label prefHeight="17.0" prefWidth="74.0" text="Paciente">
                      <font>
                         <Font size="15.0" />
@@ -91,19 +91,19 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="33.0" prefWidth="307.0" />
+                  <ComboBox fx:id="comboBoxMedico" prefHeight="33.0" prefWidth="307.0" />
                   <Label prefHeight="21.0" prefWidth="131.0" text="Data da Consulta">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="33.0" prefWidth="310.0" />
+                  <DatePicker fx:id="DPDataConsulta" prefHeight="33.0" prefWidth="310.0" />
                   <Label prefHeight="21.0" prefWidth="156.0" text="Horario da Consulta">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="33.0" prefWidth="281.0" />
+                  <TextField fx:id="txtHorarioConsulta" prefHeight="33.0" prefWidth="281.0" />
                </children>
                <opaqueInsets>
                   <Insets top="10.0" />
@@ -111,7 +111,7 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="439.0" prefHeight="33.0" prefWidth="266.0" spacing="15.0" AnchorPane.bottomAnchor="21.0" AnchorPane.topAnchor="438.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235">
+                  <Button mnemonicParsing="false" onAction="#handleConsultaInserir" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -121,7 +121,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b">
+                  <Button mnemonicParsing="false" onAction="#handleConsultaExcluir" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

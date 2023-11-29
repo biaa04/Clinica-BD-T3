@@ -1,7 +1,6 @@
 package com.example.clinicabdt3.Model.DAO;
 
-import com.example.clinicabdt3.Model.Database.DatabaseFactory;
-import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
+
 import com.example.clinicabdt3.Model.Domain.Consulta;
 import com.example.clinicabdt3.Model.Domain.Medico;
 import com.example.clinicabdt3.Model.Domain.Paciente;
@@ -28,13 +27,15 @@ public class ConsultaDAO {
 
     public boolean inserir(Consulta consulta){
 
-        String sql = "INSERT INTO consulta(fk_cpf_pac, fk_crm_med, data_consulta, horario_consulta) VALUES fk_cpf_pac=?, fk_crm_med=?, especialidade=?, data_consulta=?, horario_consulta=?";
-
+        String sql = "INSERT INTO consulta(fk_cpf_pac, fk_crm_med, data_consulta, horario_consulta) VALUES( ?,?,?,?)";
+        System.out.println("Inserir consulta");
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, consulta.getIdConsulta());
-            stmt.setDate(2, Date.valueOf(consulta.getDataConsulta()));
-            stmt.setTime(3, consulta.getHorario());
+            //stmt.setInt(1, consulta.getIdConsulta());
+            stmt.setString(1, consulta.getPaciente());
+            stmt.setString(2, consulta.getMedico());
+            stmt.setDate(3, Date.valueOf(consulta.getDataConsulta()));
+            stmt.setString(4, consulta.getHorario());
             stmt.execute();
             return true;
 
@@ -95,21 +96,19 @@ public class ConsultaDAO {
             while (resultado.next()){
 
                 Consulta consulta = new Consulta();
-                Paciente paciente = new Paciente();
-                Medico medico = new Medico();
 
                 consulta.setIdConsulta(resultado.getInt("idConsulta"));
-                paciente.setCPF(resultado.getString("fk_cpf_pac"));
-                medico.setCRM(resultado.getString("fk_crm_med"));
+                consulta.setPaciente(resultado.getString("fk_cpf_pac"));
+                consulta.setMedico(resultado.getString("fk_crm_med"));
                 consulta.setDataConsulta(resultado.getDate("data_consulta").toLocalDate());
-                consulta.setHorario(resultado.getTime("horario_consulta"));
+                consulta.setHorario(resultado.getString("horario_consulta"));
                 listConsulta.add(consulta);
 
             }
 
         }catch (SQLException ex){
             Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Exception no listar do COnsultaDAO");
+            System.out.println("Exception no listar do ConsultaDAO");
         }
         return listConsulta;
     }
