@@ -74,8 +74,7 @@ public class PacienteDAO {
             stmt.setString(1, paciente.getCPF());
             stmt.setString(2, paciente.getNome());
             stmt.setDate(3, Date.valueOf(paciente.getData_nascimento()));
-            stmt.setString(4, paciente.getCPF());
-            //stmt.setInt(4, paciente.getIdPaciente());
+            stmt.setInt(4, paciente.getIdPaciente());
             stmt.execute();
             System.out.println("Alterar PacienteDAO2");
             return true;

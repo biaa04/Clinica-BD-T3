@@ -47,6 +47,27 @@ public class ConsultaDAO {
 
     }
 
+    public boolean alterar(Consulta consulta){
+
+        String sql = "UPDATE consulta SET fk_cpf_pac=?, fk_crm_med=?, data_consulta=?, horario_consulta=? WHERE idConsulta=?";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, consulta.getPaciente());
+            stmt.setString(2, consulta.getMedico());
+            stmt.setDate(3, Date.valueOf(consulta.getDataConsulta()));
+            stmt.setString(4, consulta.getHorario());
+            stmt.setInt(5, consulta.getIdConsulta());
+            stmt.execute();
+            return true;
+
+        }catch (SQLException ex){
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no alterar do ConsultaDAO");
+            return false;
+        }
+    }
+
     public boolean remover(Consulta consulta){
 
         String sql = "DELETE FROM consulta WHERE idConsulta=?";
@@ -65,25 +86,6 @@ public class ConsultaDAO {
 
 //Não fiz alterar no consulta
 
-//    public boolean alterar(Consulta consulta){
-//
-//        String sql = "UPTADE medico SET crm=?, nome_med=?, especialidade=?, senha=? WHERE crm=?";
-//
-//        try {
-//            PreparedStatement stmt = connection.prepareStatement(sql);
-//            stmt.setString(1, medico.getCRM());
-//            stmt.setString(2, medico.getNome());
-//            stmt.setString(3, medico.getEspecialidade());
-//            stmt.setString(4, medico.getSenha());
-//            stmt.execute();
-//            return true;
-//
-//        }catch (SQLException ex){
-//            Logger.getLogger(MedicoDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            System.out.println("Exception no alterar do MedicoDAO");
-//            return false;
-//        }
-//    }
 
     public List<Consulta> listar(){
         String sql = "SELECT * FROM consulta";
@@ -113,5 +115,35 @@ public class ConsultaDAO {
         return listConsulta;
     }
 
+    public List<Consulta> buscar(String pesquisa){
+        String sql = "SELECT * FROM consulta WHERE fk_cpf_pac LIKE ? or fk_crm_med LIKE ? or data_consulta LIKE ? or horario_consulta LIKE ?";
+        List<Consulta> buscarConsulta= new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, "%"+pesquisa+"%");
+            stmt.setString(2, "%"+pesquisa+"%");
+            stmt.setString(3, "%"+pesquisa+"%");
+            stmt.setString(4, "%"+pesquisa+"%");
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+                Consulta consulta = new Consulta();
+                consulta.setPaciente(resultado.getString("fk_cpf_pac"));
+                consulta.setMedico(resultado.getString("fk_crm_med"));
+                consulta.setDataConsulta(resultado.getDate("data_consulta").toLocalDate());
+                consulta.setHorario(resultado.getString("horario_consulta"));
+                buscarConsulta.add(consulta);
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no buscar do ConsultaDAO");
+        }
+        return buscarConsulta;
+
+    }
 
 }

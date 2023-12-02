@@ -141,24 +141,27 @@ public class PagePacienteController implements Initializable {
         System.out.println("klnjncjsd");
         System.out.println(txtIDPaciente.getText());
 
-        Paciente paciente = pacienteDAO.listar().get(Integer.parseInt(txtIDPaciente.getText())-1);
-        System.out.println(paciente);
+        for( Paciente paciente : listPaciente){
+            if (txtIDPaciente.getText().equals(String.valueOf(paciente.getIdPaciente()))){
+                System.out.println("Entrou?");
+                System.out.println(String.valueOf(paciente.getIdPaciente()));
+                if (paciente != null){
 
-        if (paciente != null){
+                    paciente.setNome(txtNomePaciente.getText());
+                    paciente.setCPF(txtCPFPaciente.getText());
+                    paciente.setData_nascimento(dPNascimento.getValue());
 
-            paciente.setNome(txtNomePaciente.getText());
-            paciente.setCPF(txtCPFPaciente.getText());
-            paciente.setData_nascimento(dPNascimento.getValue());
-
-            pacienteDAO.alterar(paciente);
-            carregarTableViewPaciente();
+                    pacienteDAO.alterar(paciente);
+                    carregarTableViewPaciente();
 
 
-        }else {
+                }else {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Por favor, escolha um paciente da Tabela!");
-            alert.show();
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Por favor, escolha um paciente da Tabela!");
+                    alert.show();
+                }
+            }
         }
 
     }
@@ -166,20 +169,26 @@ public class PagePacienteController implements Initializable {
     @FXML
     public void handlePacienteExcluir() throws IOException{
 
-        Paciente paciente = pacienteDAO.listar().get(Integer.parseInt(txtIDPaciente.getText())-1);
+        for( Paciente paciente : listPaciente){
+            if (txtIDPaciente.getText().equals(String.valueOf(paciente.getIdPaciente()))){
 
-        if (paciente != null){
+                if (paciente != null){
 
-            pacienteDAO.remover(paciente);
-            carregarTableViewPaciente();
+                    pacienteDAO.remover(paciente);
+                    carregarTableViewPaciente();
+                    limparTextField();
 
-        }else {
+                }else {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Por favor, escolha um paciente da Tabela!");
-            alert.show();
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Por favor, escolha um paciente da Tabela!");
+                    alert.show();
 
+                }
+
+            }
         }
+
     }
 
 
@@ -229,7 +238,7 @@ public class PagePacienteController implements Initializable {
     }
 
     @FXML
-    public void limparTextField(javafx.scene.input.MouseEvent mouseEvent) {
+    public void limparTextField() {
         txtIDPaciente.setText(null);
         txtNomePaciente.setText(null);
         txtCPFPaciente.setText(null);
