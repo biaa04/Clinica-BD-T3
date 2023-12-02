@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: #fff;" stylesheets="@style2.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css">
          <children>
@@ -57,10 +52,10 @@
             <Button fx:id="logoutbutton" layoutX="59.0" layoutY="424.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="74.0" text="SAIR" />
          </children>
       </AnchorPane>
-      <TableView editable="true" layoutX="217.0" layoutY="94.0" prefHeight="409.0" prefWidth="935.0" stylesheets="@style2.css">
+      <TableView fx:id="consultasTable" editable="true" layoutX="217.0" layoutY="94.0" prefHeight="409.0" prefWidth="935.0" stylesheets="@style2.css">
         <columns>
-          <TableColumn prefWidth="127.80000305175781" text="data" />
-          <TableColumn prefWidth="129.0" text="Horario" />
+          <TableColumn fx:id="dataColumn" prefWidth="127.80000305175781" text="data" />
+          <TableColumn fx:id="horario" prefWidth="129.0" text="Horario" />
             <TableColumn minWidth="0.0" prefWidth="585.39990234375" text="Nome Paciente" />
             <TableColumn prefWidth="89.4000244140625" text="Idade" />
         </columns>
@@ -71,7 +66,7 @@
             <Image url="@../../../../../img/Pesquisar.png" />
          </image>
       </ImageView>
-      <Button layoutX="24.0" layoutY="302.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="62.0" style="-fx-background-color: #d3d3d3;" text="Editar Perfil">
+      <Button fx:id="editButton" layoutX="24.0" layoutY="302.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="62.0" style="-fx-background-color: #d3d3d3;" text="Editar Perfil">
          <font>
             <Font size="8.0" />
          </font>
