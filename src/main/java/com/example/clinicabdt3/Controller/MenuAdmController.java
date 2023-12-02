@@ -18,8 +18,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -67,6 +69,9 @@ public class MenuAdmController implements Initializable {
 
     @FXML
     private TextField txtIDConsulta;
+
+    @FXML
+    private TextField destinationTextField;
 
     private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
     private final Connection connection = database.conectar();
@@ -122,32 +127,90 @@ public class MenuAdmController implements Initializable {
             System.out.println("aqui2");
             consultaDAO.inserir(consulta);
             System.out.println("aqui3");
+            limparTextField();
             carregarTableViewConsulta();
         }
 
     }
 
     @FXML
+    void handlePacienteEditar() {
+
+        System.out.println("klnjncjsd");
+        System.out.println(txtIDConsulta.getText());
+
+        for( Consulta consulta : listConsulta){
+            if (txtIDConsulta.getText().equals(String.valueOf(consulta.getIdConsulta()))){
+                System.out.println("Entrou?");
+                System.out.println(String.valueOf(consulta.getIdConsulta()));
+                if (consulta != null){
+
+                    consulta.setPaciente(comboBoxPaciente.getValue());
+                    consulta.setMedico(comboBoxMedico.getValue());
+                    consulta.setDataConsulta(DPDataConsulta.getValue());
+                    consulta.setHorario(txtHorarioConsulta.getText());
+
+                    consultaDAO.alterar(consulta);
+                    carregarTableViewConsulta();
+                    limparTextField();
+
+
+                }else {
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Por favor, escolha uma consulta da Tabela!");
+                    alert.show();
+                }
+            }
+        }
+    }
+
+    @FXML
     public void handleConsultaExcluir(ActionEvent event) {
         System.out.println("22222222222");
-        Consulta consulta = consultaDAO.listar().get(Integer.parseInt(txtIDConsulta.getText())-1);
-        System.out.println("22222222222");
-        if (consulta != null){
-            System.out.println("11111111");
-            consultaDAO.remover(consulta);
-            System.out.println("11111111");
-            carregarTableViewConsulta();
-            System.out.println("11111111");
+        for( Consulta consulta : listConsulta){
+            if (txtIDConsulta.getText().equals(String.valueOf(consulta.getIdConsulta()))){
 
-        }else {
+                if (consulta != null){
+                    System.out.println("11111111");
+                    consultaDAO.remover(consulta);
+                    System.out.println("11111111");
+                    carregarTableViewConsulta();
+                    limparTextField();
+                    System.out.println("11111111");
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Por favor, escolha uma consulta da Tabela!");
-            alert.show();
+                }else {
 
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Por favor, escolha uma consulta da Tabela!");
+                    alert.show();
+
+                }
+
+            }
         }
         System.out.println("22222222222");
     }
+
+    @FXML
+    public void pesquisarConsulta(javafx.scene.input.KeyEvent keyEvent) {
+
+        if (keyEvent.getCode() == KeyCode.ENTER){
+            System.out.println("PESQUISANDO");
+
+
+            columnConsultaPaciente.setCellValueFactory(new PropertyValueFactory<>("paciente"));
+            columnConsultaMedico.setCellValueFactory(new PropertyValueFactory<>("medico"));
+            columnConsultaData.setCellValueFactory(new PropertyValueFactory<>("dataConsulta"));
+            columnConsultaHorario.setCellValueFactory(new PropertyValueFactory<>("horario"));
+
+            listConsulta = consultaDAO.buscar(destinationTextField.getText());
+            observableListConsulta= FXCollections.observableArrayList(listConsulta);
+            tableViewConsulta.setItems(observableListConsulta);
+        }
+    }
+
+
 
     @FXML
     public void handleButtonTelaPaciente(ActionEvent event) throws IOException {
@@ -174,6 +237,7 @@ public class MenuAdmController implements Initializable {
         listConsulta = consultaDAO.listar();
         observableListConsulta = FXCollections.observableArrayList(listConsulta);
         tableViewConsulta.setItems(observableListConsulta);
+
     }
 
     private boolean validarEntradaDeDados(){
@@ -221,4 +285,17 @@ public class MenuAdmController implements Initializable {
         System.out.println("Selecionou a consulta");
 
     }
+
+    public void limparTextField() {
+
+        txtIDConsulta.setText(null);
+        DPDataConsulta.setValue(null);
+        txtHorarioConsulta.setText(null);
+        comboBoxPaciente.setValue(null);
+        comboBoxMedico.setValue(null);
+
+
+    }
+
+
 }

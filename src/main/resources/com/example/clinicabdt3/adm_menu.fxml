@@ -56,7 +56,7 @@
             <TableColumn fx:id="columnConsultaMedico" maxWidth="300" prefWidth="157.5999755859375" text="Medico" />
          </columns>
       </TableView>
-      <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
+      <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" onKeyPressed="#pesquisarConsulta" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
       <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="269.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../img/Pesquisar.png" />
@@ -116,7 +116,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" styleClass="buttonCadEditar" text="ATUALIZAR" textFill="#ebb504">
+                  <Button mnemonicParsing="false" onAction="#handlePacienteEditar" prefHeight="33.0" prefWidth="88.0" styleClass="buttonCadEditar" text="EDITAR" textFill="#ebb504">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
