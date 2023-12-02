@@ -51,8 +51,18 @@ public class medico_menuController {
         stage.show();
     }
 
-    /*void editarDados(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load();
-    }*/
+    void editarDados(ActionEvent event) throws IOException {
+        System.out.println("oi");
+        Parent root = FXMLLoader.load(LoginController.class.getResource("/com/example/clinicabdt3/login.fxml"));
+        System.out.println("oi");
+        String css = PagePacienteController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+
+        Stage stage = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
 
 }
