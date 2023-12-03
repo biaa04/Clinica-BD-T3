@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -31,6 +32,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuAdmController implements Initializable {
+
+    @FXML
+    private Button logoutButton;
+
     @FXML
     TextField nomeTextField;
 
@@ -72,6 +77,8 @@ public class MenuAdmController implements Initializable {
 
     @FXML
     private TextField destinationTextField;
+
+
 
     private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
     private final Connection connection = database.conectar();
@@ -136,12 +143,10 @@ public class MenuAdmController implements Initializable {
     @FXML
     void handlePacienteEditar() {
 
-        System.out.println("klnjncjsd");
         System.out.println(txtIDConsulta.getText());
 
         for( Consulta consulta : listConsulta){
             if (txtIDConsulta.getText().equals(String.valueOf(consulta.getIdConsulta()))){
-                System.out.println("Entrou?");
                 System.out.println(String.valueOf(consulta.getIdConsulta()));
                 if (consulta != null){
 
@@ -167,17 +172,14 @@ public class MenuAdmController implements Initializable {
 
     @FXML
     public void handleConsultaExcluir(ActionEvent event) {
-        System.out.println("22222222222");
         for( Consulta consulta : listConsulta){
             if (txtIDConsulta.getText().equals(String.valueOf(consulta.getIdConsulta()))){
 
                 if (consulta != null){
-                    System.out.println("11111111");
                     consultaDAO.remover(consulta);
-                    System.out.println("11111111");
                     carregarTableViewConsulta();
                     limparTextField();
-                    System.out.println("11111111");
+
 
                 }else {
 
@@ -189,7 +191,6 @@ public class MenuAdmController implements Initializable {
 
             }
         }
-        System.out.println("22222222222");
     }
 
     @FXML
@@ -214,9 +215,7 @@ public class MenuAdmController implements Initializable {
 
     @FXML
     public void handleButtonTelaPaciente(ActionEvent event) throws IOException {
-        System.out.println("oi");
         Parent root = FXMLLoader.load(PagePacienteController.class.getResource("/com/example/clinicabdt3/admPacientes.fxml"));
-        System.out.println("oi");
         String css = PagePacienteController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
@@ -226,6 +225,19 @@ public class MenuAdmController implements Initializable {
         stage.centerOnScreen();
         stage.show();
 
+    }
+
+    @FXML
+    void sair(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(LoginController.class.getResource("/com/example/clinicabdt3/login.fxml"));
+        String css = PagePacienteController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+
+        Stage stage = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
     }
 
     private void carregarTableViewConsulta() {
