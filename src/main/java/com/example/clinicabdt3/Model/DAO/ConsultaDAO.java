@@ -115,6 +115,36 @@ public class ConsultaDAO {
         return listConsulta;
     }
 
+
+    public List<Consulta> listar(String crm){
+        String sql = "SELECT * FROM consulta WHERE fk_crm_med = ?";
+        List<Consulta> listConsulta = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, crm);
+            System.out.println(sql);
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+                Consulta consulta = new Consulta();
+
+                consulta.setIdConsulta(resultado.getInt("idConsulta"));
+                consulta.setPaciente(resultado.getString("fk_cpf_pac"));
+                consulta.setMedico(resultado.getString("fk_crm_med"));
+                consulta.setDataConsulta(resultado.getDate("data_consulta").toLocalDate());
+                consulta.setHorario(resultado.getString("horario_consulta"));
+                listConsulta.add(consulta);
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no listar do ConsultaDAO");
+        }
+        return listConsulta;
+    }
+
     public List<Consulta> buscar(String pesquisa){
         String sql = "SELECT * FROM consulta WHERE fk_cpf_pac LIKE ? or fk_crm_med LIKE ? or data_consulta LIKE ? or horario_consulta LIKE ?";
         List<Consulta> buscarConsulta= new ArrayList<>();

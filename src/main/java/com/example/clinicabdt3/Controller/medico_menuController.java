@@ -101,23 +101,23 @@ public class medico_menuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         consultaDAO.setConnection(connection);
         medicoDAO.setConnection(connection);
         pacienteDAO.setConnection(connection);
         especialidadeDAO.setConnection(connection);
-
         listMedico = medicoDAO.listar();
+        String CRM = loginController.getCrmMedico();
+        
         for (Medico medico : listMedico) {
             if (medico.getCRM().equals(loginController.getCrmMedico())) {
-                System.out.println(loginController.getCrmMedico());
-                System.out.println(medico.getCRM());
                 labelCRM.setText(medico.getCRM());
                 labelNome.setText(medico.getNome());
                 labelEspecialidade.setText(especialidadeDAO.buscarNomePorId(medico.getEspecialidade()));
                 break;
             }
         }
-       carregarTableViewConsulta();
+       carregarTableViewConsulta(CRM);
     }
 
 
@@ -264,12 +264,13 @@ public class medico_menuController implements Initializable {
         }
     }
 
-    private void carregarTableViewConsulta() {
+    private void carregarTableViewConsulta(String crmMedico) {
+        System.out.println(crmMedico);
         columnConsultaData.setCellValueFactory(new PropertyValueFactory<>("dataConsulta"));
         columnConsultaHorario.setCellValueFactory(new PropertyValueFactory<>("horario"));
         columnConsultaPaciente.setCellValueFactory(new PropertyValueFactory<>("paciente"));
-
-        listConsulta = consultaDAO.listar();
+        listConsulta = consultaDAO.listar(crmMedico);
+        System.out.println(crmMedico);
         for (Consulta consulta : listConsulta) {
             String cpf = consulta.getPaciente();
             List<Paciente> pacientes = pacienteDAO.buscar(cpf);
