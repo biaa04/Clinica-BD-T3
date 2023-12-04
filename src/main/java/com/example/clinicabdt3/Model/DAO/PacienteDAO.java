@@ -34,7 +34,6 @@ public class PacienteDAO {
             stmt.setDate(3, Date.valueOf(paciente.getData_nascimento()));
             stmt.setInt(4, paciente.getIdPaciente());
             stmt.execute();
-            connection.close();
             return true;
 
         }catch (SQLException ex){
@@ -54,7 +53,6 @@ public class PacienteDAO {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, paciente.getCPF());
             stmt.execute();
-            connection.close();
             return true;
 
         }catch (SQLException ex){
@@ -78,7 +76,6 @@ public class PacienteDAO {
             stmt.setDate(3, Date.valueOf(paciente.getData_nascimento()));
             stmt.setInt(4, paciente.getIdPaciente());
             stmt.execute();
-            connection.close();
             System.out.println("Alterar PacienteDAO2");
             return true;
         }catch (SQLException ex){

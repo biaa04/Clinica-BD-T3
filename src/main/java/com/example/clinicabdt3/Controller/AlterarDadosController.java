@@ -32,7 +32,7 @@ public class AlterarDadosController implements Initializable {
     private ComboBox<String> espeialidadeComboBox;
 
     @FXML
-    private PasswordField senhaPasswordField;
+    private TextField passwordFieldSenha;
 
     @FXML
     private Button SalvarButton;
@@ -48,6 +48,11 @@ public class AlterarDadosController implements Initializable {
     private List<Medico> listMedico;
     private ObservableList<String> observableListMedico;
     private final MedicoDAO medicoDAO = new MedicoDAO();
+    private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+    private List<Especialidade> listEspecialidade;
+    private List<String> listEspecialidadeNome;
+    private ObservableList<String> observableListEspecialidade;
+    static boolean clicked = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,14 +68,24 @@ public class AlterarDadosController implements Initializable {
     @FXML
     void editarMedico(ActionEvent event) {
 
+        Medico medico = new Medico();
+        Especialidade especialidade = new Especialidade();
+
         if (validarEntradaDeDados()){
             medico.setNome(nomeTextField.getText());
             medico.setCRM(crmTextField.getText());
-            medico.setEspecialidade(Integer.parseInt(espeialidadeComboBox.getValue()));
-            medico.setSenha(senhaPasswordField.getText());
+            //medico.setEspecialidade(Integer.parseInt(espeialidadeComboBox.getValue()));
+            medico.setSenha(passwordFieldSenha.getText());
 
-            buttonConfirmarClicked = true;
-            dialogStage.close();
+            especialidade.setNome(espeialidadeComboBox.getSelectionModel().getSelectedItem());
+
+            for (Especialidade esp: listEspecialidade){
+                if (especialidade.getNome().equals(esp.getNome())){
+                    medico.setEspecialidade(esp.getId());
+                    clicked = true;
+                }
+            }
+
         }
 
 //        for( Medico medico : listMedico){
@@ -110,7 +125,7 @@ public class AlterarDadosController implements Initializable {
         if (espeialidadeComboBox.getValue() == null || espeialidadeComboBox.getValue().length() == 0){
             errorMessage += "Especialidade inválido!\n";
         }
-        if (senhaPasswordField.getText() == null || senhaPasswordField.getText().length() == 0){
+        if (passwordFieldSenha.getText() == null || passwordFieldSenha.getText().length() == 0){
             errorMessage += "Senha inválido!\n";
         }
 
@@ -126,6 +141,7 @@ public class AlterarDadosController implements Initializable {
             return false;
         }
     }
+
 
     public Stage getDialogStage() {
         return dialogStage;
@@ -144,8 +160,10 @@ public class AlterarDadosController implements Initializable {
         this.nomeTextField.setText(medico.getNome());
         this.crmTextField.setText(medico.getCRM());
         //this.espeialidadeComboBox.setValue(medico.getEspecialidade());
-        this.senhaPasswordField.setText(medico.getSenha());
+        this.passwordFieldSenha.setText(medico.getSenha());
     }
+
+
     public boolean isButtonConfirmarClicked() {
         return buttonConfirmarClicked;
     }
