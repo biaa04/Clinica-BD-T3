@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.medico_menuController">
     <children>
         <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -35,11 +35,6 @@
                </font>
             </Button>
             <Button layoutX="47.0" layoutY="466.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="113.0" text="Voltar para login" />
-            <Button layoutX="20.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleButtonExcluir" text="Excluir Perfil">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Button>
          </children>
         </AnchorPane>
       <TableView fx:id="tableviewMedicoConsulta" editable="true" layoutX="240.0" layoutY="78.0" prefHeight="426.0" prefWidth="915.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="78.0">
