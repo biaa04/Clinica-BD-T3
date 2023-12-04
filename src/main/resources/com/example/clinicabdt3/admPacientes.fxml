@@ -21,7 +21,7 @@
             <VBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="220.0" prefHeight="154.0" prefWidth="208.0" spacing="40.0" style="-fx-padding: 10px;" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="219.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#handleButtonTelaConsulta" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="CONSULTAS" />
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="PACIENTES" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px; -fx-background-color: #bad2f7;" text="PACIENTES" />
                </children>
                <opaqueInsets>
                   <Insets right="10.0" />
