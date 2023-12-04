@@ -140,4 +140,35 @@ public class MedicoDAO {
         }
         return listMedico;
     }
+
+    public List<Medico> buscar(String pesquisa){
+        String sql = "SELECT * FROM medico WHERE id_medico LIKE ? or crm LIKE ? or nome_med LIKE ? or idEspecialidade LIKE ?";
+        List<Medico> buscarMedico = new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, "%"+pesquisa+"%");
+            stmt.setString(2, "%"+pesquisa+"%");
+            stmt.setString(3, "%"+pesquisa+"%");
+            stmt.setString(4, "%"+pesquisa+"%");
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()){
+                Medico medico = new Medico();
+                medico.setId(resultado.getInt("id_medico"));
+                medico.setCRM(resultado.getString("crm"));
+                medico.setNome(resultado.getString("nome_med"));
+                medico.setEspecialidade(resultado.getInt("data_nascimento"));
+                buscarMedico.add(medico);
+
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception no buscar do MedicoDAO");
+        }
+        return buscarMedico;
+
+    }
 }

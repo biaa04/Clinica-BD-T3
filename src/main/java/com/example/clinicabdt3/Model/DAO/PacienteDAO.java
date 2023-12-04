@@ -85,7 +85,6 @@ public class PacienteDAO {
             return false;
 
         }
-
     }
 
     public List<Paciente> listar(){

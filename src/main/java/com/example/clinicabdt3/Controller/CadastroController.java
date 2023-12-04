@@ -91,7 +91,6 @@ public class CadastroController implements Initializable {
                     medico.setEspecialidade(esp.getId());
                 }
             }
-            //medico.setEspecialidade(int sql = "SELECT id FROM Especialidade WHERE nome= comboBoxEspecialidade.getSelectionModel().getSelectedItem()");
 
             medicoDAO.inserir(medico);
             System.out.println("Cadatro realizado com sucesso");

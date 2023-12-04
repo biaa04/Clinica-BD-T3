@@ -61,15 +61,12 @@ public class LoginController {
 
     public void irAdminMenu(ActionEvent event) throws IOException{
         //função para ir para menu adm
-        //FXMLLoader loader = new FXMLLoader((getClass().getResource("nome da pagina")));
-        //Parent root = loader.load();
         Parent root = FXMLLoader.load(MenuAdmController.class.getResource("/com/example/clinicabdt3/adm_menu.fxml"));
 
         String css = MenuAdmController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
 
-        // controller = loader.getController();
         //controller._initialize(); -> vai ter que inicializar a tabela do admin assim que abre
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
