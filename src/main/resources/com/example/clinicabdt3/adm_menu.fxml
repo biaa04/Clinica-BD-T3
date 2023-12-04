@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
     <children>
         <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="18.0" prefHeight="476.0" prefWidth="192.0" spacing="40.0" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="17.0">
+            <VBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="220.0" prefHeight="154.0" prefWidth="208.0" spacing="40.0" style="-fx-padding: 10px;" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="219.0">
                <children>
-                  <ImageView fitHeight="114.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../img/IconFoto.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="35.0" top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label prefHeight="21.0" prefWidth="192.0" text="Bem-vindo, administrador.">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="8.0" top="-30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#handleButtonTelaPaciente" prefHeight="47.0" prefWidth="185.0" text="PACIENTES" />
-                  <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" text="CONSULTAS" />
-                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#sair" prefHeight="27.0" prefWidth="75.0" text="Sair">
-                     <VBox.margin>
-                        <Insets bottom="-10.0" top="50.0" />
-                     </VBox.margin>
-                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="CONSULTAS" />
+                  <Button mnemonicParsing="false" onAction="#handleButtonTelaPaciente" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="PACIENTES" />
                </children>
             </VBox>
+            <Button fx:id="logoutButton" layoutX="67.0" layoutY="424.0" mnemonicParsing="false" onAction="#sair" prefHeight="27.0" prefWidth="74.0" text="SAIR" />
          </children>
         </AnchorPane>
-      <TableView fx:id="tableViewConsulta" editable="true" layoutX="240.0" layoutY="78.0" onMouseClicked="#selecionarLinhaConsulta" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="78.0">
+      <TableView fx:id="tableViewConsulta" editable="true" layoutX="223.0" layoutY="82.0" onMouseClicked="#selecionarLinhaConsulta" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="78.0">
          <columns>
             <TableColumn fx:id="columnConsultaData" maxWidth="300" prefWidth="150" text="Data" />
             <TableColumn fx:id="columnConsultaHorario" maxWidth="300" prefWidth="150" text="Horario" />
@@ -47,8 +37,8 @@
             <TableColumn fx:id="columnConsultaMedico" maxWidth="300" prefWidth="157.5999755859375" text="Medico" />
          </columns>
       </TableView>
-      <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" onKeyPressed="#pesquisarConsulta" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="25.0" />
-      <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="269.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="destinationTextField" layoutX="238.0" layoutY="25.0" onKeyPressed="#pesquisarConsulta" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Consulta" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="28.0" />
+      <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="234.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../img/Pesquisar.png" />
          </image>
@@ -102,17 +92,17 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="439.0" prefHeight="33.0" prefWidth="266.0" spacing="15.0" AnchorPane.bottomAnchor="21.0" AnchorPane.topAnchor="438.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleConsultaInserir" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235">
+                  <Button mnemonicParsing="false" onAction="#handleConsultaInserir" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadSalvar" text="SALVAR" textFill="#08c235">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handlePacienteEditar" prefHeight="33.0" prefWidth="88.0" styleClass="buttonCadEditar" text="EDITAR" textFill="#ebb504">
+                  <Button mnemonicParsing="false" onAction="#handlePacienteEditar" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadEditar" text="EDITAR" textFill="#ebb504">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleConsultaExcluir" prefHeight="33.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b">
+                  <Button mnemonicParsing="false" onAction="#handleConsultaExcluir" prefHeight="27.0" prefWidth="74.0" styleClass="buttonCadExcluir" text="EXCLUIR" textFill="#fa270b">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -121,5 +111,15 @@
             </HBox>
          </children>
       </AnchorPane>
+      <ImageView fx:id="especialidadeImage" fitHeight="111.0" fitWidth="135.0" layoutX="43.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../img/IconFoto.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="13.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo, administrador." textAlignment="CENTER" wrappingWidth="185.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
