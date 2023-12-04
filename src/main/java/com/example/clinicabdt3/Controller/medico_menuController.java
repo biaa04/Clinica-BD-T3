@@ -128,7 +128,7 @@ public class medico_menuController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
 
-        Stage stage = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
@@ -306,3 +306,4 @@ public class medico_menuController implements Initializable {
 
 
 }
+

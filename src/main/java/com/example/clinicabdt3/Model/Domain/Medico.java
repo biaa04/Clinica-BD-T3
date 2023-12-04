@@ -27,7 +27,7 @@ public class Medico {
         this.id = id;
     }
 
-    public String getEspecialidade() {
+    public int getEspecialidade() {
         return especialidade;
     }
 

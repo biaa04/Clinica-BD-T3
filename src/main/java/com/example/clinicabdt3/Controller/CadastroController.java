@@ -1,8 +1,13 @@
 package com.example.clinicabdt3.Controller;
+import com.example.clinicabdt3.Model.DAO.EspecialidadeDAO;
 import com.example.clinicabdt3.Model.DAO.MedicoDAO;
 import com.example.clinicabdt3.Model.Database.DatabaseFactory;
 import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
+import com.example.clinicabdt3.Model.Domain.Consulta;
+import com.example.clinicabdt3.Model.Domain.Especialidade;
 import com.example.clinicabdt3.Model.Domain.Medico;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +20,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
-
+import javafx.scene.control.ComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CadastroController implements Initializable {
@@ -31,9 +37,6 @@ public class CadastroController implements Initializable {
 
     @FXML
     private PasswordField TextFieldSenha;
-
-    @FXML
-    private TextField TextFieldEspecialidade;
 
     @FXML
     private TextField TextFieldCRM;
@@ -58,6 +61,12 @@ public class CadastroController implements Initializable {
         System.out.println(connection);
         System.out.println("cadastro");
         medicoDAO.setConnection(connection);
+        especialidadeDAO.setConnection(connection);
+
+        listEspecialidadeAll = especialidadeDAO.listar();
+        listEspecialidade = especialidadeDAO.pegarEspecialidade();
+        observableListEspecialidade = FXCollections.observableArrayList(listEspecialidade);
+        comboBoxEspecialidade.setItems(observableListEspecialidade);
     }
 
     @FXML
@@ -69,11 +78,17 @@ public class CadastroController implements Initializable {
             medico.setNome(TextFieldNome.getText());
             medico.setSenha(TextFieldSenha.getText());
             medico.setCRM(TextFieldCRM.getText());
-            medico.setEspecialidade(TextFieldEspecialidade.getText());
-            System.out.println("qwe");
+            especialidade.setNome(comboBoxEspecialidade.getSelectionModel().getSelectedItem());
+
+            for (Especialidade esp: listEspecialidadeAll){
+                if (especialidade.getNome().equals(esp.getNome())){
+                    medico.setEspecialidade(esp.getId());
+                }
+            }
+            //medico.setEspecialidade(int sql = "SELECT id FROM Especialidade WHERE nome= comboBoxEspecialidade.getSelectionModel().getSelectedItem()");
+
             medicoDAO.inserir(medico);
             System.out.println("Cadatro realizado com sucesso");
-
         }
 
     }
@@ -118,7 +133,6 @@ public class CadastroController implements Initializable {
         }
 
     }
-
 
 }
 

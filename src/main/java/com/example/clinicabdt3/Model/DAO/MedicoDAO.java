@@ -71,7 +71,7 @@ public class MedicoDAO {
 
     public boolean alterar(Medico medico){
 
-        String sql = "UPTADE medico SET crm=?, nome_med=?, especialidade=?, senha=? WHERE crm=?";
+        String sql = "UPDATE medico SET crm=?, nome_med=?, idEspecialidade=?, senha=? WHERE crm=?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
