@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.AlterarDadosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com/example/clinicabdt3/Controller/AlterarDadosController.java">
    <children>
       <AnchorPane layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="677.0" style="-fx-background-color: #fff;" stylesheets="@style2.css">
          <children>
-            <AnchorPane layoutX="1.0" prefHeight="519.0" prefWidth="25.0" styleClass="blocoCad" />
+            <AnchorPane layoutX="1.0" prefHeight="519.0" prefWidth="25.0" styleClass="blocoCad" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css" />
             <TextField fx:id="nomeTextField" layoutX="216.0" layoutY="162.0" prefHeight="26.0" prefWidth="398.0" />
             <Label layoutX="79.0" layoutY="159.0" text="Nome">
                <font>
@@ -36,9 +36,14 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <TextField fx:id="passwordFieldSenha" layoutX="217.0" layoutY="332.0" prefHeight="31.0" prefWidth="397.0" />
-            <Button fx:id="salvarbutton" layoutX="245.0" layoutY="404.0" mnemonicParsing="false" onAction="#editarMedico" prefHeight="27.0" prefWidth="334.0" text="Salvar" />
+            <TextField fx:id="senhaPasswordField" layoutX="217.0" layoutY="332.0" prefHeight="31.0" prefWidth="397.0" />
+            <Button fx:id="salvarbutton" layoutX="245.0" layoutY="404.0" mnemonicParsing="false" onAction="#editarMedico" prefHeight="27.0" prefWidth="334.0" styleClass="buttonCadSalvar" text="Salvar" />
             <ComboBox fx:id="espeialidadeComboBox" layoutX="216.0" layoutY="273.0" prefHeight="26.0" prefWidth="398.0" />
+            <Button layoutX="375.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonExcluir" styleClass="buttonCadExcluir" text="Excluir Perfil">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

@@ -14,15 +14,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onMouseClicked="#limparTextField" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.PagePacienteController">
+<AnchorPane onMouseClicked="#limparTextField" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.PagePacienteController">
    <children>
       <AnchorPane prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css">
          <children>
-            <VBox layoutY="176.0" prefHeight="236.0" prefWidth="208.0" spacing="20.0" style="-fx-padding: 10px;">
+            <VBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="220.0" prefHeight="154.0" prefWidth="208.0" spacing="40.0" style="-fx-padding: 10px;" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="219.0">
                <children>
-                  <AnchorPane prefHeight="40.0" prefWidth="188.0" />
                   <Button mnemonicParsing="false" onAction="#handleButtonTelaConsulta" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="CONSULTAS" />
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px;" text="PACIENTES" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 5px; -fx-background-color: #bad2f7;" text="PACIENTES" />
                </children>
                <opaqueInsets>
                   <Insets right="10.0" />
@@ -33,7 +32,7 @@
                   <Image url="@../../../../../img/IconFoto.png" />
                </image>
             </ImageView>
-            <Text layoutX="17.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo, administrador." textAlignment="CENTER" wrappingWidth="169.9166717529297">
+            <Text layoutX="13.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo, administrador." textAlignment="CENTER" wrappingWidth="185.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -41,7 +40,7 @@
             <Button fx:id="logoutbutton" layoutX="67.0" layoutY="424.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="74.0" text="SAIR" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tableViewPaciente" editable="true" layoutX="223.0" layoutY="82.0" onMouseClicked="#selecionarLinhaPaciente" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css">
+      <TableView fx:id="tableViewPaciente" editable="true" layoutX="223.0" layoutY="82.0" onMouseClicked="#selecionarLinhaPaciente" prefHeight="426.0" prefWidth="565.0" stylesheets="@style2.css" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="373.0">
          <columns>
             <TableColumn fx:id="columnPacienteID" prefWidth="64.0" text="ID" />
             <TableColumn fx:id="columnPacienteNome" prefWidth="79.0" text="Nome" />
@@ -97,8 +96,8 @@
             <TextField fx:id="txtNomePaciente" layoutX="35.0" layoutY="171.0" prefHeight="33.0" prefWidth="281.0" />
          </children>
       </AnchorPane>
-      <TextField fx:id="destinationTextField" layoutX="244.0" layoutY="21.0" onKeyPressed="#pesquisarPaciente" prefHeight="42.0" prefWidth="521.0" promptText="Buscar Paciente" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" />
-      <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="259.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="destinationTextField" layoutX="223.0" layoutY="28.0" onKeyPressed="#pesquisarPaciente" prefHeight="42.0" prefWidth="565.0" promptText="Buscar Paciente" style="-fx-background-color: #fff; -fx-font-size: 16;" styleClass="button" stylesheets="@style2.css" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="28.0" />
+      <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="235.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../img/Pesquisar.png" />
          </image>
