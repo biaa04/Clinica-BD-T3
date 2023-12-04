@@ -31,8 +31,9 @@ public class AlterarDadosController implements Initializable {
     @FXML
     private ComboBox<String> espeialidadeComboBox;
 
+
     @FXML
-    private TextField passwordFieldSenha;
+    private TextField senhaPasswordField;
 
     @FXML
     private Button SalvarButton;
@@ -40,6 +41,10 @@ public class AlterarDadosController implements Initializable {
     private Stage dialogStage;
 
     private Medico medico;
+
+    private String crmMed;
+
+    private Medico medicooo;
 
     private boolean buttonConfirmarClicked = false;
 
@@ -58,10 +63,12 @@ public class AlterarDadosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         medicoDAO.setConnection(connection);
-
+        especialidadeDAO.setConnection(connection);
         listMedico = medicoDAO.listar();
-        //observableListMedico = FXCollections.observableArrayList(listMedico);
-        //tableViewPaciente.setItems(observableListPaciente);
+        listEspecialidade = especialidadeDAO.listar();
+        listEspecialidadeNome = especialidadeDAO.pegarEspecialidade();
+        observableListEspecialidade = FXCollections.observableArrayList(listEspecialidadeNome);
+        espeialidadeComboBox.setItems(observableListEspecialidade);
 
     }
 
@@ -71,61 +78,38 @@ public class AlterarDadosController implements Initializable {
         Medico medico = new Medico();
         Especialidade especialidade = new Especialidade();
 
-        if (validarEntradaDeDados()){
+        if (validarEntradaDeDados()) {
             medico.setNome(nomeTextField.getText());
-            medico.setCRM(crmTextField.getText());
-            //medico.setEspecialidade(Integer.parseInt(espeialidadeComboBox.getValue()));
-            medico.setSenha(passwordFieldSenha.getText());
+            medico.setSenha(senhaPasswordField.getText());
+            String CRM = loginController.getCrmMedico();
+            medico.setCRM(CRM);
 
             especialidade.setNome(espeialidadeComboBox.getSelectionModel().getSelectedItem());
 
-            for (Especialidade esp: listEspecialidade){
-                if (especialidade.getNome().equals(esp.getNome())){
+            for (Especialidade esp : listEspecialidade) {
+                if (especialidade.getNome().equals(esp.getNome())) {
                     medico.setEspecialidade(esp.getId());
-                    clicked = true;
+                    System.out.println("setando especialidade");
+                    medicoDAO.alterar(medico);
+                    buttonConfirmarClicked = true;
+                    dialogStage.close();
                 }
             }
-
         }
 
-//        for( Medico medico : listMedico){
-//            if (crmTextField.getText().equals(medico.getCRM())){
-//                System.out.println(medico.getCRM());
-//                if (medico != null){
-//
-//                    medico.setNome(nomeTextField.getText());
-//                    medico.setCRM(crmTextField.getText());
-//                    medico.setEspecialidade(Integer.parseInt(espeialidadeComboBox.getValue()));
-//                    medico.setSenha(senhaPasswordField.getText());
-//
-//                    medicoDAO.alterar(medico);
-//
-//
-//
-//                }else {
-//
-//                    Alert alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setContentText("Por favor, escolha uma consulta da Tabela!");
-//                    alert.show();
-//                }
-//            }
-//        }
 
     }
 
-    private boolean validarEntradaDeDados(){
+    private boolean validarEntradaDeDados() {
         String errorMessage = "";
 
         if (nomeTextField.getText() == null || nomeTextField.getText().length() == 0){
             errorMessage += "Nome inválido!\n";
         }
-        if (crmTextField.getText() == null || crmTextField.getText().length() == 0){
-            errorMessage += "CRM inválido!\n";
-        }
-        if (espeialidadeComboBox.getValue() == null || espeialidadeComboBox.getValue().length() == 0){
+        if (espeialidadeComboBox.getValue() == null || espeialidadeComboBox.getValue().length() == 0) {
             errorMessage += "Especialidade inválido!\n";
         }
-        if (passwordFieldSenha.getText() == null || passwordFieldSenha.getText().length() == 0){
+        if (senhaPasswordField.getText() == null || senhaPasswordField.getText().length() == 0) {
             errorMessage += "Senha inválido!\n";
         }
 
@@ -160,7 +144,7 @@ public class AlterarDadosController implements Initializable {
         this.nomeTextField.setText(medico.getNome());
         this.crmTextField.setText(medico.getCRM());
         //this.espeialidadeComboBox.setValue(medico.getEspecialidade());
-        this.passwordFieldSenha.setText(medico.getSenha());
+        this.senhaPasswordField.setText(medico.getSenha());
     }
 
 

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com/example/clinicabdt3/Controller/AlterarDadosController.java">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.AlterarDadosController">
    <children>
       <AnchorPane layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="677.0" style="-fx-background-color: #fff;" stylesheets="@style2.css">
          <children>
-            <AnchorPane layoutX="1.0" prefHeight="519.0" prefWidth="25.0" styleClass="blocoCad" stylesheets="@../OneDrive/Documentos/JavaProjects/SistemaViagensJavaFX/src/style2.css" />
+            <AnchorPane layoutX="1.0" prefHeight="519.0" prefWidth="25.0" styleClass="blocoCad"  />
             <TextField fx:id="nomeTextField" layoutX="216.0" layoutY="162.0" prefHeight="26.0" prefWidth="398.0" />
             <Label layoutX="79.0" layoutY="159.0" text="Nome">
                <font>

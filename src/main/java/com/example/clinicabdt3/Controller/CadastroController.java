@@ -50,6 +50,7 @@ public class CadastroController implements Initializable {
     private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
     private List<String> listEspecialidade;
     private List<Especialidade> listEspecialidadeAll;
+    private List<Medico> listMedico;
     private ObservableList<String> observableListEspecialidade;
 
     private final MedicoDAO medicoDAO = new MedicoDAO();
@@ -63,6 +64,7 @@ public class CadastroController implements Initializable {
         medicoDAO.setConnection(connection);
         especialidadeDAO.setConnection(connection);
 
+
         listEspecialidadeAll = especialidadeDAO.listar();
         listEspecialidade = especialidadeDAO.pegarEspecialidade();
         observableListEspecialidade = FXCollections.observableArrayList(listEspecialidade);
@@ -75,11 +77,15 @@ public class CadastroController implements Initializable {
         Especialidade especialidade = new Especialidade();
 
         if (validarEntradaDeDados()){
+
+            System.out.println("Tamanho id:"+medico.getId());
             medico.setNome(TextFieldNome.getText());
             medico.setSenha(TextFieldSenha.getText());
             medico.setCRM(TextFieldCRM.getText());
             especialidade.setNome(comboBoxEspecialidade.getSelectionModel().getSelectedItem());
 
+
+            System.out.println("Tamanho id:"+medico.getId());
             for (Especialidade esp: listEspecialidadeAll){
                 if (especialidade.getNome().equals(esp.getNome())){
                     medico.setEspecialidade(esp.getId());

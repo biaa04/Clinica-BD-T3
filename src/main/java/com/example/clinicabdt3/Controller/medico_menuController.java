@@ -160,15 +160,17 @@ public class medico_menuController implements Initializable {
 
         // Set the location of the FXML file
         fxmlLoader.setLocation(AlterarDadosController.class.getResource("/com/example/clinicabdt3/alterar_dados.fxml"));
-
         Group root = new Group();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Alterar Dados do Médico");
         stage.setScene(scene);
-        stage.show();
 
         AlterarDadosController controller = fxmlLoader.getController();
-        AlterarDadosController alterarDadosController = new AlterarDadosController();
+        controller.setDialogStage(stage);
+        stage.showAndWait();
+        if (controller.isButtonConfirmarClicked()){
+            stage.close();
+        }
 
 
     }

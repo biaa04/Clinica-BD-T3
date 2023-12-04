@@ -71,16 +71,15 @@ public class MedicoDAO {
 
     public boolean alterar(Medico medico){
 
-        String sql = "UPDATE medico SET crm=?, nome_med=?, idEspecialidade=?, senha=? WHERE crm=?";
+        String sql = "UPDATE medico SET nome_med=?, idEspecialidade=?, senha=? WHERE crm=?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, medico.getCRM());
-            stmt.setString(2, medico.getNome());
-            stmt.setInt(3, medico.getEspecialidade());
-            stmt.setString(4, medico.getSenha());
+            stmt.setString(1, medico.getNome());
+            stmt.setInt(2, medico.getEspecialidade());
+            stmt.setString(3, medico.getSenha());
+            stmt.setString(4, medico.getCRM());
             stmt.execute();
-
             return true;
 
         }catch (SQLException ex){
