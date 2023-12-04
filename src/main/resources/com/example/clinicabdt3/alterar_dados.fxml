@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com/example/clinicabdt3/Controller/AlterarDadosController.java">
    <children>
       <AnchorPane layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="677.0" style="-fx-background-color: #fff;" stylesheets="@style2.css">
          <children>
@@ -23,7 +27,6 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <PasswordField fx:id="espeialidadeTextField" layoutX="216.0" layoutY="273.0" prefHeight="26.0" prefWidth="398.0" />
             <Label layoutX="245.0" layoutY="69.0" text="ALTERAR DADOS">
                <font>
                   <Font name="System Bold" size="27.0" />
@@ -34,7 +37,8 @@
                   <Font size="20.0" />
                </font></Label>
             <TextField fx:id="senhaPasswordField" layoutX="217.0" layoutY="332.0" prefHeight="31.0" prefWidth="397.0" />
-            <Button fx:id="salvarbutton" layoutX="245.0" layoutY="404.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="334.0" text="Salvar" />
+            <Button fx:id="salvarbutton" layoutX="245.0" layoutY="404.0" mnemonicParsing="false" onAction="#editarMedico" prefHeight="27.0" prefWidth="334.0" text="Salvar" />
+            <ComboBox fx:id="espeialidadeComboBox" layoutX="216.0" layoutY="273.0" prefHeight="26.0" prefWidth="398.0" />
          </children>
       </AnchorPane>
    </children>

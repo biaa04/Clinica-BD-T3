@@ -2,6 +2,7 @@ package com.example.clinicabdt3.Controller;
 import com.example.clinicabdt3.Controller.CadastroController;
 import com.example.clinicabdt3.Model.Database.DatabaseFactory;
 import com.example.clinicabdt3.Model.Database.DatabaseSQLite;
+import com.example.clinicabdt3.Model.Domain.Medico;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -40,6 +41,8 @@ public class LoginController {
     private ResultSet result;
     private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
     private final Connection connection = database.conectar();
+    public String crm;
+   static String crmMedico;
 
 
     @FXML
@@ -53,8 +56,7 @@ public class LoginController {
         stage.show();
     }
 
-    public void irAdminMenu(ActionEvent event) throws IOException
-    {
+    public void irAdminMenu(ActionEvent event) throws IOException{
         //função para ir para menu adm
         //FXMLLoader loader = new FXMLLoader((getClass().getResource("nome da pagina")));
         //Parent root = loader.load();
@@ -72,19 +74,22 @@ public class LoginController {
         stage.show();
     }
 
-    public void irMedicoMenu(ActionEvent event) throws IOException
-    {
+    public void irMedicoMenu(ActionEvent event) throws IOException, SQLException {
+        crmMedico = CPFTextField.getText();
 
-        Parent root = FXMLLoader.load(medico_menuController.class.getResource("/com/example/clinicabdt3/menuMedico.fxml"));
-
+        root = FXMLLoader.load(medico_menuController.class.getResource("/com/example/clinicabdt3/menuMedico.fxml"));
+        medico_menuController controller = new medico_menuController();
+        controller.setCrm(crm);
         String css = medico_menuController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
 
+        connection.close();
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+
     }
 
     @FXML
@@ -100,7 +105,7 @@ public class LoginController {
         }else {
             //precisa procurar o nome digitado no banco e se for achado terá condições que levam a diferentes telas
             String sql = "SELECT crm, senha FROM medico WHERE crm = ? and senha = ?";
-            connect = database.conectar();
+            //connect = database.conectar();
 
             try {
 
@@ -122,6 +127,7 @@ public class LoginController {
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Message");
                         alert.setHeaderText(null);
+                        crmMedico = CPFTextField.getText();
                         irMedicoMenu(event);
 
                     } else {
@@ -141,4 +147,7 @@ public class LoginController {
 
     }
 
+    public String getCrmMedico() {
+        return crmMedico;
+    }
 }

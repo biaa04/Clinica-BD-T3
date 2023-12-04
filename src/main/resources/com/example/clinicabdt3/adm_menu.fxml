@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clinicabdt3.Controller.MenuAdmController">
     <children>
         <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="519.0" prefWidth="208.0" styleClass="blocoCad" stylesheets="@style2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,7 +39,7 @@
                   </Label>
                   <Button mnemonicParsing="false" onAction="#handleButtonTelaPaciente" prefHeight="47.0" prefWidth="185.0" text="PACIENTES" />
                   <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" text="CONSULTAS" />
-                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#sair" prefHeight="27.0" prefWidth="75.0" text="Sair">
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="75.0" text="Sair">
                      <VBox.margin>
                         <Insets bottom="-10.0" top="50.0" />
                      </VBox.margin>

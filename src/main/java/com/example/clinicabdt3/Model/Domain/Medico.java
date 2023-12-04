@@ -5,13 +5,13 @@ public class Medico {
     private int id;
     private String nome;
     private String CRM;
-    private String especialidade;
+    private int especialidade;
     private String senha;
 
 
 
     public Medico(){}
-    public Medico(String nome, String senha, String CRM, String especialidade) {
+    public Medico(String nome, String senha, String CRM, int especialidade) {
         this.nome = nome;
         this.senha = senha;
         this.CRM = CRM;
@@ -31,7 +31,7 @@ public class Medico {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(int especialidade) {
         this.especialidade = especialidade;
     }
 

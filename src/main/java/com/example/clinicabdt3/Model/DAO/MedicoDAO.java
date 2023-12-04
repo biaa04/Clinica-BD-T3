@@ -26,7 +26,7 @@ public class MedicoDAO {
 
     public boolean inserir(Medico medico){
 
-        String sql = "INSERT INTO medico(crm, nome_med, especialidade, senha) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO medico(crm, nome_med, idEspecialidade, senha) VALUES (?,?,?,?)";
 
         try {
             System.out.println("a");
@@ -34,9 +34,10 @@ public class MedicoDAO {
             System.out.println("a");
             stmt.setString(1, medico.getCRM());
             stmt.setString(2, medico.getNome());
-            stmt.setString(3, medico.getEspecialidade());
+            stmt.setInt(3, medico.getEspecialidade());
             stmt.setString(4, medico.getSenha());
             stmt.execute();
+
             return true;
 
         }catch (SQLException ex){
@@ -52,9 +53,14 @@ public class MedicoDAO {
         String sql = "DELETE FROM medico WHERE crm=?";
 
         try {
+            System.out.println("1");
             PreparedStatement stmt = connection.prepareStatement(sql);
+            System.out.println("2");
             stmt.setString(1, medico.getCRM());
+            System.out.println("3");
             stmt.execute();
+            System.out.println("4");
+
             return true;
         }catch (SQLException ex){
             Logger.getLogger(MedicoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,9 +77,10 @@ public class MedicoDAO {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, medico.getCRM());
             stmt.setString(2, medico.getNome());
-            stmt.setString(3, medico.getEspecialidade());
+            stmt.setInt(3, medico.getEspecialidade());
             stmt.setString(4, medico.getSenha());
             stmt.execute();
+
             return true;
 
         }catch (SQLException ex){
@@ -96,9 +103,10 @@ public class MedicoDAO {
                 Medico medico = new Medico();
                 medico.setCRM(resultado.getString("crm"));
                 medico.setNome(resultado.getString("nome_med"));
-                medico.setEspecialidade(resultado.getString("especialidade"));
+                medico.setEspecialidade(resultado.getInt("idEspecialidade"));
                 medico.setSenha(resultado.getString("senha"));
                 listMedico.add(medico);
+
 
             }
 

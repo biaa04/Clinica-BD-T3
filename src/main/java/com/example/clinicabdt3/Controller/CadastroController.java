@@ -40,6 +40,15 @@ public class CadastroController implements Initializable {
 
     @FXML
     private Button LoginButton;
+
+    @FXML
+    private ComboBox<String> comboBoxEspecialidade;
+
+    private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
+    private List<String> listEspecialidade;
+    private List<Especialidade> listEspecialidadeAll;
+    private ObservableList<String> observableListEspecialidade;
+
     private final MedicoDAO medicoDAO = new MedicoDAO();
     private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
     private final Connection connection = database.conectar();
@@ -54,6 +63,7 @@ public class CadastroController implements Initializable {
     @FXML
     public void handleButtonCadastro(ActionEvent event) {
         Medico medico = new Medico();
+        Especialidade especialidade = new Especialidade();
 
         if (validarEntradaDeDados()){
             medico.setNome(TextFieldNome.getText());
@@ -92,7 +102,7 @@ public class CadastroController implements Initializable {
         if (TextFieldCRM.getText() == null || TextFieldCRM.getText().length() == 0){
             erroMessage += "CRM inválida!\n";
         }
-        if (TextFieldEspecialidade.getText() == null || TextFieldEspecialidade.getText().length() == 0){
+        if (comboBoxEspecialidade.getValue() == null || comboBoxEspecialidade.getValue().length() == 0){
             erroMessage += "Especialidade inválida!\n";
         }
 
