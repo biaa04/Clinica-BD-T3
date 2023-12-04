@@ -135,22 +135,8 @@ public class medico_menuController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
-        //database.desconectar(connection);
     }
 
-//    void editarDados(ActionEvent event) throws IOException {
-//        System.out.println("oi");
-//        Parent root = FXMLLoader.load(AlterarDadosController.class.getResource("/com/example/clinicabdt3/alterar_dados.fxml"));
-//        System.out.println("oi");
-//        String css = AlterarDadosController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
-//        Scene scene = new Scene(root);
-//        scene.getStylesheets().add(css);
-//
-//        Stage stage = (Stage) ((javafx.scene.Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
-//        stage.show();
-//    }
 
     @FXML
     void handleButtonEditar(ActionEvent event) throws IOException{
@@ -178,34 +164,6 @@ public class medico_menuController implements Initializable {
         stage.close();
     }
 
-
-    @FXML
-    void handleButtonExcluir(ActionEvent event) throws IOException, SQLException {
-
-        for (Medico medico : listMedico) {
-            if (medico.getCRM().equals(loginController.getCrmMedico())) {
-
-                if (medico != null) {
-                    Alert alert  = new Alert(AlertType.CONFIRMATION);
-                    alert.setTitle("Confirmação");
-                    alert.setContentText("Tem certeza de que deseja excluir sua conta?");
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if (result.isPresent() && result.get() == ButtonType.OK) {
-                        System.out.println("ooooo1");
-                        redirecionarParaTelaDeLogin(event);
-                        medicoDAO.remover(medico);
-                        System.out.println("ooooo2");
-                    }
-                } else {
-
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("ERROR");
-                    alert.show();
-
-                }
-            }
-        }
-    }
 
     @FXML
     public void pesquisarConsulta(javafx.scene.input.KeyEvent keyEvent) {
@@ -244,94 +202,6 @@ public class medico_menuController implements Initializable {
         this.crm = crm;
     }
 
-    private void redirecionarParaTelaDeLogin(ActionEvent event) throws SQLException{
-        try {
-            connection.close();
-            Parent root = FXMLLoader.load(LoginController.class.getResource("/com/example/clinicabdt3/login.fxml"));
-            String css = PagePacienteController.class.getResource("/com/example/clinicabdt3/style2.css").toExternalForm();
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(css);
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.centerOnScreen();
-            stage.show();
-           // database.desconectar(connection);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-//    @FXML
-//    void handleButtonEditar(ActionEvent event) throws IOException {
-//
-//        // Medico medico = tableviewMedicoConsulta.getSelectionModel().getSelectedItem();
-//        for (Medico medico : listMedico) {
-//            if (medico.getCRM().equals(loginController.getCrmMedico())){
-//                showAnchorPaneCadastrosClientesDialog(medico);
-//                medicoDAO.alterar(medico);
-//            }
-//        }
-
-//        if (medico != null) {
-//
-//            boolean buttonConfirmarClicked = showAnchorPaneCadastrosClientesDialog(medico);
-//
-//            if (buttonConfirmarClicked) {
-//                medicoDAO.alterar(medico);
-//            }
-//            System.out.println("Fim Alterar");
-//
-//        } else {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("Por favor, escolha um médico da Tabela!");
-//            alert.show();
-//
-//        }
-//        System.out.println("fim Alterar2");
-//
-//    }
-
-//    public void showAnchorPaneCadastrosClientesDialog(Medico medico) throws IOException {
-//
-//        FXMLLoader fxmlLoader = new FXMLLoader(AlterarDadosController.class.getResource("com/example/clinicabdt3/alterar_dados.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        Stage stage = new Stage();
-//        stage.setTitle("Médico");
-//        stage.setScene(scene);
-//        stage.showAndWait();
-//        System.out.println("inicio");
-//
-//        FXMLLoader loader = new FXMLLoader();
-//        System.out.println(loader);
-//        loader.setLocation(AlterarDadosController.class.getResource("/com/example/clinicabdt3/alterar_dados.fxml"));
-//        AnchorPane page = (AnchorPane) loader.load();
-
-//
-//        FXMLLoader loader = new FXMLLoader();
-//        System.out.println(loader);
-//        loader.setLocation(AlterarDadosController.class.getResource("/com/example/clinicabdt3/alterar_dados.fxml"));
-//        System.out.println("kkkkkk");
-//        AnchorPane page = (AnchorPane) loader.load();
-//        System.out.println("kkkkkk");
-//        // pega a tela e bota na variavel page em vez de ter só o endereço
-//
-//        //Criando um estágio de diálogo (Stage Dialog)
-//        Stage dialogStage = new Stage();
-//        dialogStage.setTitle("Alterar Dados Médico");
-//        Scene scene = new Scene(page);
-//        dialogStage.setScene(scene);
-//
-//        //Setando o cliente no Controller
-//        AlterarDadosController controller = loader.getController();
-//        controller.setDialogStage(dialogStage);
-//        controller.setMedico(medico);
-//
-//        //Mostra o dialog e espera até que o usuário o feche
-//        dialogStage.showAndWait();
-//
-//        return controller.isButtonConfirmarClicked();
 
 }
 

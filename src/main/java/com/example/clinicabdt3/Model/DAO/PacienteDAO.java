@@ -150,7 +150,6 @@ public class PacienteDAO {
         List<String> listPaciente = new ArrayList<>();
 
         try {
-            System.out.println("ppppppppppppppppp");
             System.out.println("ENtrou no listar");
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();

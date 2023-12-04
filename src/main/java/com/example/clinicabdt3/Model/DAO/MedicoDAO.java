@@ -121,8 +121,7 @@ public class MedicoDAO {
         List<String> listMedico = new ArrayList<>();
 
         try {
-            System.out.println("uuuuuuuuuuuuuuuuuu");
-            System.out.println("ENtrou no listar");
+
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();
 
