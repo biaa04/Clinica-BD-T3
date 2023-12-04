@@ -79,7 +79,8 @@ public class LoginController {
 
     public void irMedicoMenu(ActionEvent event) throws IOException, SQLException {
         crmMedico = CPFTextField.getText();
-
+        System.out.println("menu");
+        connect.close();
         root = FXMLLoader.load(medico_menuController.class.getResource("/com/example/clinicabdt3/menuMedico.fxml"));
         medico_menuController controller = new medico_menuController();
         controller.setCrm(crm);
@@ -87,10 +88,11 @@ public class LoginController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
 
-        connection.close();
+
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
+        System.out.println("menu");
         stage.show();
 
     }
@@ -102,13 +104,13 @@ public class LoginController {
 
         // se o texto digitado por admin admin abre a tela adm_menu
         System.out.println(CPFTextField.getText());
-        if(CPFTextField.getText().equals("admin") || senhaTextField.getText().equals("admin")) {
+        if(CPFTextField.getText().equals("admin") && senhaTextField.getText().equals("admin")) {
 
             irAdminMenu(event);
         }else {
             //precisa procurar o nome digitado no banco e se for achado terá condições que levam a diferentes telas
             String sql = "SELECT crm, senha FROM medico WHERE crm = ? and senha = ?";
-            //connect = database.conectar();
+            connect = database.conectar();
 
             try {
 
