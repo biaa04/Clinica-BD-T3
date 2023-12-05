@@ -97,7 +97,7 @@ public class LoginController {
     @FXML
     public void login(ActionEvent event) throws IOException {
 
-        //precisa procurar o nome digitado no banco(ainda precisa implementar) e se for achado terá condições que levam a diferentes telas
+        //Procura o nome digitado no banco e se for encontrado terá condições que levam a diferentes telas
 
         // se o texto digitado por admin admin abre a tela adm_menu
         System.out.println(CPFTextField.getText());
@@ -105,7 +105,7 @@ public class LoginController {
 
             irAdminMenu(event);
         }else {
-            //precisa procurar o nome digitado no banco e se for achado terá condições que levam a diferentes telas
+
             String sql = "SELECT crm, senha FROM medico WHERE crm = ? and senha = ?";
             connect = database.conectar();
 
