@@ -93,6 +93,9 @@ public class MenuAdmController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        txtIDConsulta.setDisable(true);
+
         consultaDAO.setConnection(connection);
         pacienteDAO.setConnection(connection);
         medicoDAO.setConnection(connection);
