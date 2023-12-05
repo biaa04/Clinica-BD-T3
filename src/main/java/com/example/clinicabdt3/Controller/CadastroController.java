@@ -92,7 +92,18 @@ public class CadastroController implements Initializable {
                 }
             }
 
-            medicoDAO.inserir(medico);
+            if (medicoDAO.inserir(medico)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("CADASTRO REALIZADO COM SUCESSO");
+                alert.setHeaderText("Bem-vindo ao sistema de médico");
+                alert.show();
+                limparTextField();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("NÃO FOI POSSÍVEL REALIZAR SEU CADASTRO");
+                alert.setHeaderText("Erro ao realizar cadastro");
+                alert.show();
+            }
             System.out.println("Cadatro realizado com sucesso");
         }
 
@@ -136,6 +147,15 @@ public class CadastroController implements Initializable {
             alert.show();
             return false;
         }
+
+    }
+
+    @FXML
+    public void limparTextField() {
+        TextFieldNome.setText(null);
+        TextFieldCRM.setText(null);
+        comboBoxEspecialidade.setValue(null);
+        TextFieldSenha.setText(null);
 
     }
 

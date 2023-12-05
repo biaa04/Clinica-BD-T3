@@ -201,6 +201,7 @@ public class medico_menuController implements Initializable {
 
     }
 
+
     public void setCrm(String crm) {
         this.crm = crm;
     }

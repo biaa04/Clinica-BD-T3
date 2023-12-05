@@ -131,7 +131,10 @@ public class PagePacienteController implements Initializable {
             paciente.setIdPaciente(idPac);
             System.out.println(idPac);
             System.out.println(paciente.getIdPaciente());
-            pacienteDAO.inserir(paciente);
+            if (produtoExiste(paciente)){
+                pacienteDAO.inserir(paciente);
+            }
+            limparTextField();
             carregarTableViewPaciente();
         }
 
@@ -153,6 +156,7 @@ public class PagePacienteController implements Initializable {
                     paciente.setData_nascimento(dPNascimento.getValue());
 
                     pacienteDAO.alterar(paciente);
+                    limparTextField();
                     carregarTableViewPaciente();
 
 
@@ -291,6 +295,20 @@ public class PagePacienteController implements Initializable {
         stage.centerOnScreen();
         stage.show();
 
+    }
+
+    public boolean produtoExiste(Paciente paciente){
+        listPaciente = pacienteDAO.listar();
+        for (Paciente pac: listPaciente){
+            if (pac.getCPF().equals(paciente.getCPF())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("CPF JÁ EXISTENTE");
+                alert.setHeaderText("Erro No seu cadastro - Esse CPF já foi cadastrado");
+                alert.show();
+                return false;
+            }
+        }
+        return true;
     }
 
     public Paciente getPaciente() {
