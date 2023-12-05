@@ -100,6 +100,7 @@ public class PagePacienteController implements Initializable {
         System.out.println("aaaaaaaaaaaaa");
         carregarTableViewPaciente();
 
+        txtIDPaciente.setDisable(true);
 
 
     }

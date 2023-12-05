@@ -139,7 +139,7 @@ public class medico_menuController implements Initializable {
 
 
     @FXML
-    void handleButtonEditar(ActionEvent event) throws IOException{
+    void handleButtonEditar(ActionEvent event) throws IOException, SQLException {
 
         stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -156,6 +156,9 @@ public class medico_menuController implements Initializable {
         stage.showAndWait();
         if (controller.isButtonConfirmarClicked()){
             stage.close();
+        }
+        if (controller.isButtonCancelarClicked()){
+            logout(event);
         }
 
 

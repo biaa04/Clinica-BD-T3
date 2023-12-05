@@ -54,6 +54,8 @@ public class AlterarDadosController implements Initializable {
 
     private boolean buttonConfirmarClicked = false;
 
+    private boolean buttonCancenlarClicked = false;
+
     private final DatabaseSQLite database = DatabaseFactory.getDatabase("clinicabd");
     private final Connection connection = database.conectar();
     private List<Medico> listMedico;
@@ -159,6 +161,10 @@ public class AlterarDadosController implements Initializable {
         return buttonConfirmarClicked;
     }
 
+    public boolean isButtonCancelarClicked() {
+        return buttonCancenlarClicked;
+    }
+
     public String getCrmMed() {
         return crmMed;
     }
@@ -195,6 +201,7 @@ public class AlterarDadosController implements Initializable {
                     if (result.isPresent() && result.get() == ButtonType.OK) {
                         redirecionarParaTelaDeLogin(event);
                         medicoDAO.remover(medico);
+                        buttonCancenlarClicked = true;
                         dialogStage.close();
 
                     }
